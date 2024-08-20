@@ -1,0 +1,71 @@
+body{
+    background-color: white;
+}
+
+.errorpage{
+    width: 100vw;
+    display: flex;
+    margin-top: 60px;
+    gap: 60px;
+    margin-bottom: 91px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+._404{
+    width: 722px;
+    height: 492px;
+}
+
+.oops{
+    display: flex;
+
+    justify-content:space-between;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    
+}
+.oops h1{
+    font-weight: 700px;
+    font-size: 36px;
+    line-height: 43.67px;
+    font-family: sans-serif;
+}
+.oops p{
+    color: #8c8787;
+    font-family:inherit;
+    font-weight: 400px;
+    font-size: 24px;
+}
+.oops button{
+    width: 206px;
+    height: 45px;
+    background-color: #7848F4;
+    border-radius: 30px;
+    padding: 10px 20px 10px 20px;
+    gap: 20px;
+    color: #FFFF;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.followus{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+
+}
+.followus h4{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.followus .mediaimgs{
+    display:flex;
+    gap: 10px;
+}

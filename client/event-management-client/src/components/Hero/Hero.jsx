@@ -1,9 +1,16 @@
 import React from "react";
+import First from "./upcoming/First";
+import Second from "./CreateEvents/second";
+import Third from "./Trending/Third";
+import Fourth from "./Blogs/Fourth"
 
 export default function Hero(){
     return (
         <>
-           <h1>Hero</h1>
+           <First/>
+           <Second/>
+           <Third/>
+           <Fourth/>
         </>
     )
 }
