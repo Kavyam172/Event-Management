@@ -4,12 +4,12 @@ import './First.css';
 
 const EventCard = ({ title, date, location, image, isFree }) => {
     return (
-        <div>
+        <div className='firstbox'>
             <div className="event-card">
                 {isFree && <div className="free-tag">Free</div>}
-                <div className="img">
+                
                     <img src={image} alt={title} />
-                </div>
+                
 
                 <div className="event-info">
                     <h3>{title}</h3>

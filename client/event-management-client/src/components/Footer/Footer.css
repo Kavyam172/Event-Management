@@ -1,0 +1,37 @@
+.footer-bar{
+    display: flex;
+    margin-top: 50px;
+
+    align-items: center;
+    justify-content:space-around;
+    gap: 10px;
+    flex-direction: column;
+    background-color: #10107B;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-bar h1{
+    color: white    ;
+}
+
+.copy-right{
+    color: white;
+}
+.conatiner .language{
+    display: flex;
+    gap: 5px;
+}
+
+.conatiner{
+    padding: 5px;;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 2px solid white;
+    gap: 5px;
+}
