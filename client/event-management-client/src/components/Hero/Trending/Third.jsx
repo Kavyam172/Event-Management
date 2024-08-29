@@ -1,26 +1,9 @@
 import React from 'react'
 import './Third.css';
+import EventCard from '../../Card/EventCard';
 
 
-const EventCard=({title,date,location,image,isFree})=>{
-    return(
-        <div className="event-card">
-            {isFree && <div className="free-tag">Free</div> }
-             <div className="img"> 
-            <img src={image} alt={title} />
-            </div>
-            
-            <div className="event-info">
-                <h3>{title}</h3>
-                <p>
-                    {date} - {location}
-                </p>
-                <h6>ONLINE EVENT - Attend anywhere </h6>
-             </div> 
-            
-        </div>
-    );
-};
+
 
 const TrendingColleges=()=>{
     const events=[

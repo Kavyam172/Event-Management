@@ -1,0 +1,198 @@
+body {
+    background: #F8F8FA;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 100px;
+    margin-top: 80px;
+}
+
+label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+
+    font-weight: 500;
+    line-height: 14.56px;
+    text-align: left;
+
+}
+
+.Fgrp input {
+    width: 816px;
+    height: 46px;
+    background-color: #ffffff;
+    border: none;
+
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+
+.Fgrp {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.in1 {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainformgroup {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group input {
+    background-color: #ffffff;
+    border: none;
+    width: 393px;
+    height: 46px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+
+.form-group #start-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group #end-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group #start-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group #end-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.createeventinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.createeventinfo h2 {
+    font-weight: 300px;
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.eventdescription {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.eventdescription h2 {
+    font-weight: 600;
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.eventdescription form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+textarea {
+    width: 813px;
+    height: 198px;
+    border: none;
+    border-radius: 5px;
+
+    /* //styleName: Sub-Paragraph;
+font-family: Product Sans; */
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    /* padding-left: 10px; */
+    /* padding-top: 10px; */
+
+}
+
+input[type='file'] {
+    color: transparent;
+}
+
+.eventdescription form .inputimg {
+    width: 813px;
+    height: 254px;
+    background-color: #ECECEC;
+    border-radius: 15px;
+
+}
+
+#event-image {
+    
+}
+
+.hostbutton {
+    background: #7848F4;
+    width: 813px;
+    height: 49px;
+    padding: 15px 40px 15px 40px;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: center;
+    color: #ffffff;
+
+
+
+
+
+}

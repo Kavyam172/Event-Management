@@ -1,37 +1,91 @@
-.footer-bar{
-    display: flex;
+.footer-bar {
+    /* display: flex; */
     margin-top: 50px;
 
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     gap: 10px;
     flex-direction: column;
     background-color: #10107B;
 }
 
-.footer-links a{
+.logo,
+.subscribe-form,
+.footer-links {
+    display: flex;
+    justify-content: center;
+}
+
+.subscribe-form {
+    margin-top: 10px;
+    display: flex;
+    gap: 1vw;
+}
+
+.subscribe-form input {
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.subscribe-form button {
+    cursor: pointer;
+    color: white;
+    background-color: #7848F4;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.footer-links{
+    margin-top: 10px;
+    display: flex;
+    gap: 30.5px;
+}
+
+.footer-links a {
     text-decoration: none;
+    font-weight: bold;
     color: white;
 }
 
-.footer-bar h1{
-    color: white    ;
-}
-
-.copy-right{
+.footer-bar h1 {
     color: white;
 }
-.conatiner .language{
+
+.social-links{
     display: flex;
-    gap: 5px;
+    gap: 1vw;
+    padding-left: 45px;
 }
 
-.conatiner{
-    padding: 5px;;
+.copy-right {
+    color: white;
+    font-size: 13px;
+}
+
+.conatiner {
+    margin-top: 3vw;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    border-top: 2px solid white;
-    gap: 5px;
+    justify-content: center;
+    gap: 25vw;
+}
+
+.language{
+    display: flex;
+    gap: 1vw;
+}
+
+.language button{
+    cursor: pointer;
+    color: white;
+    background-color: #7848F4;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 6px;
 }
