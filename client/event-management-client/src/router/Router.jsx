@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout"
 import Hero from "../components/Hero/Hero";
 import Error from "../components/error/Error";
-
+import Register from "../components/registerinevent/Register";
 import Host from "../components/hostevent/Host";
 
 const Router = createBrowserRouter([
@@ -21,6 +21,11 @@ const Router = createBrowserRouter([
             {
                 path:"/create",
                 element:<Host/>
+
+            },
+            {
+                path:"/register",
+                element:<Register/>
 
             }
         ]

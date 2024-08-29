@@ -1,7 +1,8 @@
 .footer-bar {
     /* display: flex; */
     margin-top: 50px;
-
+    position: static;
+    bottom: 0px;
     align-items: center;
     justify-content: space-around;
     gap: 10px;
