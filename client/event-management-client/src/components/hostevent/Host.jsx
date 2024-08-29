@@ -1,5 +1,6 @@
 import React from 'react'
 import './Host.css'
+// import Getimg from '../hostevent/imgupload/Getimg'
 
 const Host = () => {
     return (
@@ -48,8 +49,10 @@ const Host = () => {
                     <div className="in1">
                         <label for="event-image">Event Image:</label>
                         <div className="inputimg">
-                        <input type="file" id="event-image" name="event-image" />
+                         <input type="file" id="event-image" name="event-image" /> 
                         </div>
+                        {/* <Getimg/> */}
+                        
                     </div>
                     <div className="in1">
                         <label for="event-description">Event Description:</label>
