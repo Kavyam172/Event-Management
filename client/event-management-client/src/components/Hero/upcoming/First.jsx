@@ -3,14 +3,6 @@ import React from 'react'
 import './First.css';
 import EventCard from '../../Card/EventCard';
 
-
-
-
-
-
-
-
-
 const UpcomingEvents = () => {
     const events = [
         {
