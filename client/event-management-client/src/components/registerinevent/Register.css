@@ -1,0 +1,62 @@
+body{
+    background: #F8F8FA;
+}
+.registerbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.registerbox h2{
+    font-weight: 300px;
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.registerbox input{
+    background-color: #ffffff;
+    border: none;
+    width: 393px;
+    height: 46px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+
+.registerbox form{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.getname{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.getEmail{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.register-button{
+    background: #7848F4;
+    height: 49px;
+    padding: 15px 40px 15px 40px;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: center;
+    color: #ffffff;
+}

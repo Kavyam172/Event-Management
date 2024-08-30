@@ -1,0 +1,50 @@
+#root {
+    width: 100vw;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 100px;
+}
+
+.logo span {
+    font-size: 22px;
+    color: #7848F4;
+}
+
+.logo h1,
+.logo span {
+    font-size: 3vw;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.buttons .login,
+.sign-up {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.buttons .login{
+    background-color: white;
+}
+.buttons .sign-up {
+    color: white;
+    background-color: #7848F4;
+    font-weight: bold;
+}
