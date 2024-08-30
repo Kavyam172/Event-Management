@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const paymentsSchema = new mongoose.Schema({
     id: String,
@@ -17,6 +17,6 @@ const paymentsSchema = new mongoose.Schema({
     }
 })
 
-const Users = mongoose.model('Users', userSchema);
+const Payments = mongoose.model('Payments', paymentsSchema);
 
-export default Users;
+module.exports = Payments;

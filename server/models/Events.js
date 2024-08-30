@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
     id: String,
@@ -18,6 +18,6 @@ const eventSchema = new mongoose.Schema({
     }
 })
 
-const Events = mongoose.model('Events', userSchema);
+const Events = mongoose.model('Events', eventSchema);
 
-export default Events;
+module.exports = Events;

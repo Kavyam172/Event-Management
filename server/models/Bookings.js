@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const bookingsSchema = new mongoose.Schema({
     id: String,
@@ -19,4 +19,4 @@ const bookingsSchema = new mongoose.Schema({
 
 const Bookings = mongoose.model('Bookings', bookingsSchema);
 
-export default Bookings;
+module.exports = Bookings;

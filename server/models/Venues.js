@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const venuesSchema = new mongoose.Schema({
     id: String,
@@ -21,4 +21,4 @@ const venuesSchema = new mongoose.Schema({
 
 const Venues = mongoose.model('Venues', venuesSchema);
 
-export default Venues;
+module.exports = Venues;
