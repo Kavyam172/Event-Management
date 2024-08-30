@@ -1,25 +1,17 @@
-/* *{
-    background-color: #f1f1f1;
-} */
  body{
   background-color: #f1f1f1;
-  
-  width: 800px;
-
  }
 
 .upcoming-events {
-    text-align:left;
     margin-top: 50px;
-    
+    width: 90vw;
+    margin : auto;
   }
 
   .upcoming-events h1 {
-    margin-left: 50px;
+    text-align: left;
     font-weight: 700;
-    
-    size: 36px;
-
+    font-size: 36px;
   }
 
   .upcoming-events h1 span{
@@ -32,80 +24,10 @@
   
   .events-grid {
     display:grid;
-    /* align-items: center; */
-    
     grid-template-columns: repeat(3, 1fr);
+    /* overflow: hidden; */
     gap: 20px;
-
-
     margin-top: 20px;
-  }
-  
-  .event-card {
-    width: 368px;
-    background-color: #F8F8FA;
-    height: 400px;
-    padding: 20px 20px 5px ;
-    padding-top: 21px;
-
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .event-card img{
-    
-    width: 368px;
-    height: 248px;
-    border-radius: 5px;
-    object-fit: cover;
-
-  }
-  
-  
-  .free-tag {
-    background-color:#F8F8FA;
-    color: #7848F4;
-    padding: 5px 10px;
-    margin-top: 30px;
-    margin-left:30px ;
-    position: absolute;
-    /* top: 10px;
-    right: 10px; */
-    border-radius: 5px;
-  }
-  
-  
-  
-  .event-info {
-    background-color: #F8F8FA;
-    padding: 15px;
-  }
-  
-  .event-info h3 {
-    background-color: #F8F8FA;
-    margin-top: 0;
-    font-weight: 400px;
-    font-size: 17px;
-    line-height: 20px;
-  }
-  .event-info p{
-    color: #7848F4;
-    background-color:#F8F8FA;
-    font-weight: 400px;
-    font-size: 13px;
-    margin-top: 8px;
-  }
-  .event-info h6{
-    color: #7E7E7E;
-    font-weight: 400px;
-    font-size: 12px;
-
-
-    margin-top: 10px;
-    
   }
   
   .load-more {
@@ -115,13 +37,11 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    /* margin-top: 30px; */
     cursor: pointer; 
-    
   }
   .loadbutton{
     
-    width: 100vw;
+    width: 100%;
     padding-top: 90px;
     display: flex;
     align-items: center;

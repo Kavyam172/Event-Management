@@ -1,18 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './First.css';
 import EventCard from '../../Card/EventCard';
 
-
-
-
-
-
-
-
-
 const UpcomingEvents = () => {
-    const events = [
+    const [events,setEvents] = useState([
         {
             title: 'BestSeller Book Bootcamp - write, Market & Publish Your Book - Lucknow',
             date: 'Saturday,March 18, 12:00PM',
@@ -58,7 +50,7 @@ const UpcomingEvents = () => {
 
 
 
-    ];
+    ])
     return (
         <div className="upcoming-events">
             <h1>Upcoming <span>Events</span> </h1>
