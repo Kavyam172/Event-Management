@@ -1,0 +1,168 @@
+
+.eachcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 10px;
+    margin: 1vw 3vw;
+}
+
+.eachcontainer .bgimage {
+    padding: 5px 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 1320px;
+    height: 595px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    background-image: url(D:\EM\Event-Management\client\event-management-client\src\assets\eachevent\bgeachevent.svg);
+}
+
+.bgimage .dream {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+.dream .booknow{
+    display: flex;
+    align-items:flex-start;
+    justify-content:center;
+    gap: 30px;
+    
+}
+
+.dream .booknow h3 {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.11px;
+    text-align: left;
+
+
+}
+
+.dream .booknow p {
+
+    color: #7E7E7E;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.83px;
+    text-align: left;
+
+}
+.bookbtn{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+.para{
+    padding-top: 25px;
+}
+
+.booknow .bookbtn .book {
+    width: 325px;
+    height: 49px;
+    padding: 15px 40px 15px 40px;
+    gap: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7848F4;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+
+
+}
+
+.booknow .bookbtn .promoter {
+    width: 325px;
+    height: 49px;
+    padding: 15px 40px 15px 40px;
+    border-radius: 5px;
+    border: none;
+
+    background-color: #C5C5C5;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+
+
+}
+
+
+
+
+
+
+.eachcontainer .dream .eventdesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: flex-start;
+    width: 600px;
+    height: 590px;
+}
+
+.eachcontainer .dream .booknow {
+    width: 335px;
+    height: 338px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    padding: 10px 40px 10px 40px;
+    flex-direction: column;
+}
+
+.eachcontainer .dream .eventdesc h1 {
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 77.63px;
+    text-align: left;
+
+}
+
+.eachcontainer .dream .eventdesc h2 {
+    color: #ffffff;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.67px;
+    text-align: left;
+
+}
+
+.eachcontainer .dream .eventdesc p {
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: left;
+
+}
+
+.bgimage .back {
+    margin-top: 40px;
+    width: 79px;
+    height: 40px;
+    background-color: #7848F4;
+    color: #ffffff;
+    border: none;
+    padding: 0px 5px 3px 1px;
+    border-radius: 5px;
+}
+.bgimage .back span{
+    font-size: 20px;
+}

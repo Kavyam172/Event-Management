@@ -1,0 +1,133 @@
+body{
+    background: #FFFF;
+}
+
+.middle2box {
+    width: 100vw;
+    display: flex;
+    gap: -100px;
+    /* justify-content: space-between; */
+    gap: 188px;
+    padding: 20px 50px;
+}
+
+.middle2box .organizer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.middle2box .organizer h3 {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.11px;
+    text-align: left;
+
+}
+
+.middle2box .organizer p {
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: left;
+    color: #7E7E7E;
+
+
+}
+
+.middle2box .organizer p span {
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: left;
+    color: #7848F4;
+
+
+}
+
+.middle2box .tagshare {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.middle2box .tagshare .tags {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.middle2box .tagshare .tags h3 {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.11px;
+    text-align: left;
+
+}
+
+.middle2box .tagshare .tags .minitagbox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 442px;
+    height: 88px;
+    top: 1274px;
+    left: 780px;
+    gap: 8px;
+    border-radius: 5px 0px 0px 0px;
+    opacity: 0px;
+
+
+}
+
+.middle2box .tagshare .tags .minitagbox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    top: 1274px;
+    left: 780px;
+    padding: 6px 5px;
+    gap: 10px;
+    border-radius: 5px;
+    background-color:  #F8F8FA;
+    ;
+
+   
+font-family: Verdana, Geneva, Tahoma, sans-serif; 
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: center;
+
+
+
+}
+
+.middle2box .tagshare .share {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.middle2box .tagshare .share h3{
+    
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 24px;
+font-weight: 700;
+line-height: 29.11px;
+text-align: left;
+
+}
+
+.middle2box .tagshare .share .shareimg {
+    display: flex;
+    width: 252px;
+    height: 48px;
+    gap: 10px;
+}
