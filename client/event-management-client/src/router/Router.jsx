@@ -4,6 +4,7 @@ import Hero from "../components/Hero/Hero";
 import Error from "../components/error/Error";
 import Register from "../components/registerinevent/Register";
 import Host from "../components/hostevent/Host";
+import Event from "../components/allEvents/event";
 
 const Router = createBrowserRouter([
     {
@@ -26,6 +27,11 @@ const Router = createBrowserRouter([
             {
                 path:"/register",
                 element:<Register/>
+
+            },
+            {
+                path:"/events",
+                element:<Event/>
 
             }
         ]

@@ -1,0 +1,59 @@
+
+
+.event-hive-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-content {
+  color: #333;
+  z-index: 1;
+  padding-left: 90px;
+  display: flex;
+    gap: 2vw;
+    flex-direction: column;
+}
+
+.hero-content h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.hero-content h1 {
+  font-size: 72px;
+  font-weight: 700;
+}
+
+.hero-content span {
+  color: #7848F4;
+}
+
+.hero-image {
+  width: 923px;
+  height: 450px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stats div {
+  padding: 2vw;
+  border: none;
+  background-color: #7848F4 ;
+  border-radius: 10px;
+}
+
+.stats span{
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+.stats p{
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
