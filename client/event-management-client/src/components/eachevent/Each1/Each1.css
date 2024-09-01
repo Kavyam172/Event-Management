@@ -19,7 +19,7 @@
     height: 595px;
     background-repeat: no-repeat;
     border-radius: 10px;
-    background-image: url(D:\EM\Event-Management\client\event-management-client\src\assets\eachevent\bgeachevent.svg);
+    background-image: url(../../../assets/eachevent/bgeachevent.svg);
 }
 
 .bgimage .dream {

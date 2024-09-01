@@ -13,7 +13,6 @@ const Each = () => {
         <Each1/>
         <Each2/>
         <Each3/>
-        <Each4/> 
         </>
         
         
