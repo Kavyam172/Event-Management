@@ -11,6 +11,8 @@ const UpcomingEvents = () => {
         const response = await fetch('http://localhost:3000/events');
         const data = await response.json();
         console.log(data)
+        //save only first six events
+        data.length = 6;
         setEvents(data);
     };
 
