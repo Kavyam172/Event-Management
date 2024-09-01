@@ -5,6 +5,9 @@ import Error from "../components/error/Error";
 import Register from "../components/registerinevent/Register";
 import Host from "../components/hostevent/Host";
 import Each from "../components/eachevent/Each";
+import Sign from "../layout/Sign";
+import Signup from "../components/signup/Signup";
+import Signin from "../components/signin/Signin";
 
 const Router = createBrowserRouter([
     {
@@ -34,8 +37,21 @@ const Router = createBrowserRouter([
                 element:<Each/>
 
             }
+           
+        ]
+    },
+    {
+        path:'/signup',
+        element:(<Sign/>),
+        children:[
+            {
+                index:true,
+                element:<Signup/>
+            },
         ]
     }
+    
+
 ])
 
 export default Router
