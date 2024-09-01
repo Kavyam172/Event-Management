@@ -7,8 +7,7 @@ const EventCard = ({ title, date, location, image, isFree }) => {
             <div className="event-card">
                 {isFree && <div className="free-tag">Free</div>}
                 
-                    <img src={image} alt={title} />
-                
+                <img src={image} alt={title} />
 
                 <div className="event-info">
                     <h3>{title}</h3>

@@ -1,6 +1,5 @@
 body {
   background-color: #f1f1f1;
-  width: 800px;
 }
 
 .upcoming-events {
@@ -12,6 +11,7 @@ body {
   margin-left: 50px;
   font-weight: 700;
   font-size: 36px;
+  margin-top: 3vw;
 }
 
 .upcoming-events h1 span {
@@ -117,3 +117,52 @@ body {
   align-items: center;
   justify-content: center;
 }
+ body{
+  background-color: #f1f1f1;
+ }
+
+.upcoming-events {
+    margin-top: 50px;
+    width: 90vw;
+    margin : auto;
+  }
+
+  .upcoming-events h1 {
+    text-align: left;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  .upcoming-events h1 span{
+    color: #7848F4;
+  }
+
+.upcoming-events .wordevent{
+    color: blueviolet;
+}
+  
+  .events-grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* overflow: hidden; */
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .load-more {
+    top:10px;
+    background-color: #7848F4;
+    color: #F8F8FA;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+  .loadbutton{
+    
+    width: 100%;
+    padding-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
