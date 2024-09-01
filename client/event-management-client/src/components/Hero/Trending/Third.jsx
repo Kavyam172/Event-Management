@@ -13,21 +13,7 @@ const TrendingColleges=()=>{
             location: 'Lucknow',
             image: '/src/assets/cardimg.svg', 
             isFree: true,
-        },
-        {
-            title:'BestSeller Book Bootcamp - write, Market & Publish Your Book - Lucknow',
-            date:'Saturday,March 18, 12:00PM',
-            location: 'Lucknow',
-            image: '/src/assets/cardimg.svg', 
-            isFree: true,
-        },
-        {
-            title:'BestSeller Book Bootcamp - write, Market & Publish Your Book - Lucknow',
-            date:'Saturday,March 18, 12:00PM',
-            location: 'Lucknow',
-            image: '/src/assets/cardimg.svg', 
-            isFree: true,
-        },
+        }
        
         
     ];

@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const Events = require('../models/Events');
-// Get all events
+const upload = require('../config/multerconfig');
+
+// get all events sorted according to the start date such that the event with the earliest start date comes first
 router.get('/', async (req, res) => {
     try {
-        const events = await Events.find();
-        console.log(events)
+        const events = await Events.find().sort({ startDate: 1 });
         res.json(events);
     } catch (err) {
-        console.log(err)
         res.json({ message: err });
     }
 });
 
-// Get event by id
+// get details of a particular event by id
 router.get('/:eventId', async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);
@@ -23,39 +23,28 @@ router.get('/:eventId', async (req, res) => {
     }
 });
 
-// Create new event
-router.post('/', async (req, res) => {
+// endpoint to create new event
+router.post('/',upload.single('image'), async (req, res) => {
+    // send the uploaded image as url in the response
+    const imageUrl = `/uploads/${req.file.filename}`
+
     const event = new Events({
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,
-        banner: req.body.banner,
+        banner: 'http://localhost:3000'+imageUrl,
         venueid: req.body.venueid,
-        shows: req.body.shows
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        price: req.body.price,
+        availableSeats: req.body.availableSeats
     });
+
     try {
         const savedEvent = await event.save();
         res.json(savedEvent);
-    } catch (err) {
-        res.json({ message: err });
-    }
-});
-
-// Update event by id
-router.patch('/:eventId', async (req, res) => {
-    try {
-        const updatedEvent = await Events.updateOne({ _id: req.params.eventId }, { $set: { title: req.body.title } });
-        res.json(updatedEvent);
-    } catch (err) {
-        res.json({ message: err });
-    }
-});
-
-// Delete event by id
-router.delete('/:eventId', async (req, res) => {
-    try {
-        const removedEvent = await Events.remove({ _id: req.params.eventId });
-        res.json(removedEvent);
     } catch (err) {
         res.json({ message: err });
     }

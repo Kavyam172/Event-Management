@@ -4,10 +4,34 @@ const eventSchema = new mongoose.Schema({
     id: String,
     title: String,
     description: String,
-    category: String,
-    banner: String,
+    category: {
+        type: String,
+        enum: ['Music', 'Comedy', 'Theatre', 'Sports']
+    },
+    banner: {
+        type: String,
+        default: null
+    },
     venueid: String,
-    shows: Array,
+    startDate: {
+        type: Date,
+        default: new Date()
+    },
+    endDate: {
+        type: Date,
+        default: new Date()
+    },
+    startTime: String,
+    endTime: String,
+    price: {
+        type: Number,
+        default: 0
+    },
+    availableSeats: Number,
+    bookedSeats: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         default: new Date()
