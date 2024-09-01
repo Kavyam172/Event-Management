@@ -8,7 +8,6 @@ const venuesSchema = new mongoose.Schema({
     state: String,
     zipcode: String,
     capacity: Number,
-    events: Array,
     createdAt: {
         type: Date,
         default: new Date()
