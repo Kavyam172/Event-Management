@@ -50,6 +50,33 @@ label {
     flex-direction: column;
 }
 
+
+
+.in1 select{
+    width: 816px;
+    height: 46px;
+    background-color: #ffffff;
+    border: none;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+.place{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.city, .state{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .mainformgroup {
     margin-top: 30px;
     display: flex;
@@ -85,21 +112,25 @@ label {
 .form-group #start-time {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #end-time {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #start-date {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #end-date {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .createeventinfo {
