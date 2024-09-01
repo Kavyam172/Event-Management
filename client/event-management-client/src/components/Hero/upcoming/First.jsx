@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './First.css';
+import React, { useState } from 'react';
+import './First.css'; // Assuming this CSS file styles the component
 import EventCard from '../../Card/EventCard';
 
 const UpcomingEvents = () => {
@@ -21,20 +21,19 @@ const UpcomingEvents = () => {
     }, []);
 
   return (
-    <>
-        <div className="upcoming-events">
-        <h1>Upcoming <span>Events</span> </h1>
+    <div className="upcoming-events">
+      <h1>Upcoming <span>Events</span> </h1>
 
-        <div className="events-grid">
-            {events.map((event) => (
-            <EventCard key={event._id} title={event.title} id = {event._id} startdate = {event.startDate} location = {"location"} image = {event.banner} isFree={event.price>0?false:true}/>
-            ))}
-        </div>
-        <div className="loadbutton">
-            <button className="load-more">Load more...</button>
-        </div>
-        </div>
-    </>
+      <div className="events-grid">
+        {events.map((event) => (
+          <EventCard key={event.title} {...event} />
+        ))}
+      </div>
+
+      <div className="loadbutton">
+        <button className="load-more">Load more...</button>
+      </div>
+    </div>
   );
 };
 
