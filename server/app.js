@@ -17,6 +17,7 @@ app.use('/uploads',express.static('uploads'))
 connectDB()
 
 app.use('/events',eventsRoute)
+app.use('/venues',require('./routes/venues'))
 
 app.get('/',(req,res)=>{
     res.send('Hello World')

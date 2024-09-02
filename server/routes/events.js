@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Events = require('../models/Events');
+const Venues = require('../models/Venues');
 const upload = require('../config/multerconfig');
+const { default: mongoose } = require('mongoose');
 
 // get all events sorted according to the start date such that the event with the earliest start date comes first
 router.get('/', async (req, res) => {
@@ -17,7 +19,9 @@ router.get('/', async (req, res) => {
 router.get('/:eventId', async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);
-        res.json(event);
+        const venue = await Venues.findById(event.venueid);
+        //send both event and venue details
+        res.json({event, venue}); 
     } catch (err) {
         res.json({ message: err });
     }
@@ -25,7 +29,7 @@ router.get('/:eventId', async (req, res) => {
 
 // endpoint to create new event
 router.post('/',upload.single('image'), async (req, res) => {
-    // send the uploaded image as url in the response
+    console.log(req.body);
     const imageUrl = `/uploads/${req.file.filename}`
 
     const event = new Events({
@@ -33,20 +37,21 @@ router.post('/',upload.single('image'), async (req, res) => {
         description: req.body.description,
         category: req.body.category,
         banner: 'http://localhost:3000'+imageUrl,
-        venueid: req.body.venueid,
+        venueid: req.body.venue,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         price: req.body.price,
-        availableSeats: req.body.availableSeats
+        availableSeats: req.body.availableSeats 
     });
 
     try {
         const savedEvent = await event.save();
-        res.json(savedEvent);
+        res.status(200).json(savedEvent);
     } catch (err) {
-        res.json({ message: err });
+        console.log(err)    
+        res.status(500).json({ message: err });
     }
 });
 

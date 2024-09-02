@@ -6,7 +6,6 @@ const eventSchema = new mongoose.Schema({
     description: String,
     category: {
         type: String,
-        enum: ['Music', 'Comedy', 'Theatre', 'Sports']
     },
     banner: {
         type: String,

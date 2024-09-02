@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Each3.css"
 
-const Each3 = () => {
+const Each3 = ({category}) => {
     return (
         <div className="middle2box">
             <div className="organizer">
@@ -12,12 +12,7 @@ const Each3 = () => {
                 <div className="tags">
                     <h3>Tags</h3>
                     <div className="minitagbox">
-                    <div className="indonesia">indonesia event</div>
-                    <div className="jaskaran">jaskaran event</div>
-                    <div className="ui">UI</div>
-                    <div className="jaskaran">jaskaran event</div>
-                    <div className="seminar">seminar</div>
-                    <div className="jaskaran">jaskaran event</div>
+                    <div className="indonesia">{category}</div>
                     </div>
                 </div>
                 <div className="share">

@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./event.css";
+import EventCard from '../Card/EventCard';
 
 const Event = () => {
   const [weekdayFilter, setWeekdayFilter] = useState('All');
   const [eventTypeFilter, setEventTypeFilter] = useState('All');
   const [categoryFilter, setCategoryFilter] = useState('All');
+  const [events,setEvents] = useState([])
+
+  //function to fetch all events from the database
+    const fetchEvents = async () => {
+        const response = await fetch('http://localhost:3000/events');
+        const data = await response.json();
+        console.log(data)
+        setEvents(data);
+    };
+
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
 
 
   const handleFilterChange = (setter) => (event) => {
@@ -63,8 +78,12 @@ const Event = () => {
           </select>
         </div>
       </div>
-
-      {/* <First /> */}
+      
+      <div className="events-grid-all">
+        {events.map((event) => (
+            <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true}/>
+          ))}
+      </div>
     </div>
   );
 }

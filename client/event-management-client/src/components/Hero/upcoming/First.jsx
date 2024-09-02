@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './First.css'; // Assuming this CSS file styles the component
 import EventCard from '../../Card/EventCard';
+import { Link } from 'react-router-dom';
 
 const UpcomingEvents = () => {
 
@@ -26,12 +27,12 @@ const UpcomingEvents = () => {
 
       <div className="events-grid">
         {events.map((event) => (
-          <EventCard key={event.title} {...event} />
+          <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true}/>
         ))}
       </div>
 
       <div className="loadbutton">
-        <button className="load-more">Load more...</button>
+        <Link to={"./events"} className="load-more">Load more...</Link>
       </div>
     </div>
   );
