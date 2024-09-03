@@ -30,6 +30,21 @@
 .create .createbox .createEvent {
     height: 182px;
 }
+.createEvent h1{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+color: #FFFFFF;
+font-size: 36px;
+font-weight: 700;
+line-height: 43.67px;
+text-align: left;
+
+
+}
+.create .createbox .createEvent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .create .createbox .createEvent p {
     color: #F8F8FA;

@@ -10,7 +10,7 @@ const second = () => {
                     <img src="/src/assets/image 3.svg" alt="" />
                 </div>
                 <div className="createEvent">
-                    <h1><img src="/src/assets/event.svg" alt="" /></h1>
+                    <h1>Make your own Event</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing. Lorem, ipsum dolor.</p>
                     <Link to={"./create"}><button>Create Events</button></Link>
                     
