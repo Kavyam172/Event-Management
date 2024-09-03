@@ -4,10 +4,12 @@ import Hero from "../components/Hero/Hero";
 import Error from "../components/error/Error";
 import Register from "../components/registerinevent/Register";
 import Host from "../components/hostevent/Host";
-import Event from "../components/allEvents/event";
+import Each from "../components/eachevent/Each";
 import Sign from "../layout/Sign";
 import Signup from "../components/signup/Signup";
 import Signin from "../components/signin/Signin";
+import Event from "../components/allEvents/event";
+
 const Router = createBrowserRouter([
     {
         path:'/',
