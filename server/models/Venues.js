@@ -2,13 +2,24 @@ const mongoose = require('mongoose');
 
 const venuesSchema = new mongoose.Schema({
     id: String,
-    name: String,
-    address: String,
-    city: String,
-    state: String,
-    zipcode: String,
+    name: {
+        type: String,
+        required: true,
+    },
+    address: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        default: null
+    },
+    state: {
+        type: String,
+        default: null
+    },
+    zipcode: Number,
     capacity: Number,
-    events: Array,
     createdAt: {
         type: Date,
         default: new Date()

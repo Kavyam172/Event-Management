@@ -9,6 +9,7 @@ import Sign from "../layout/Sign";
 import Signup from "../components/signup/Signup";
 import Signin from "../components/signin/Signin";
 import Event from "../components/allEvents/event";
+import Each from "../components/eachevent/Each";
 
 const Router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const Router = createBrowserRouter([
                 path:"/events",
                 element:<Event/>
 
+            },
+            {
+                path:"/event/:id",
+                element:<Each/>
             },
             {
                 path:"/aboutevent",

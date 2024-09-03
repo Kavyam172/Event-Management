@@ -46,61 +46,6 @@ body {
   margin-top: 20px;
 }
 
-.event-card {
-  width: 368px;
-  background-color: #f8f8fa;
-  height: 400px;
-  padding: 20px 20px 5px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.event-card img {
-  width: 368px;
-  height: 248px;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-.free-tag {
-  background-color: #f8f8fa;
-  color: #7848f4;
-  padding: 5px 10px;
-  margin-top: 30px;
-  margin-left: 30px;
-  position: absolute;
-  border-radius: 5px;
-}
-
-.event-info {
-  background-color: #f8f8fa;
-  padding: 15px;
-}
-
-.event-info h3 {
-  margin-top: 0;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 20px;
-}
-
-.event-info p {
-  color: #7848f4;
-  font-weight: 400;
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-.event-info h6 {
-  color: #7e7e7e;
-  font-weight: 400;
-  font-size: 12px;
-  margin-top: 10px;
-}
-
 .load-more {
   background-color: #7848f4;
   color: #f8f8fa;

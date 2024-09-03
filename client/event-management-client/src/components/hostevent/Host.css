@@ -35,6 +35,7 @@ label {
     text-align: left;
     padding-left: 12px;
     border-radius: 5px;
+    border: 1px solid #ECECEC;
 
 }
 
@@ -48,6 +49,34 @@ label {
     gap: 10px;
     display: flex;
     flex-direction: column;
+}
+
+
+
+.in1 select{
+    width: 816px;
+    height: 46px;
+    background-color: #ffffff;
+    border: none;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
+    padding-left: 12px;
+    border-radius: 5px;
+    border: 1px solid #ECECEC;
+
+}
+.place{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.city, .state{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .mainformgroup {
@@ -74,32 +103,37 @@ label {
     width: 393px;
     height: 46px;
 
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 14.56px;
     text-align: left;
     padding-left: 12px;
     border-radius: 5px;
+    border: 1px solid #ECECEC;
 }
 
 .form-group #start-time {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #end-time {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #start-date {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group #end-date {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .createeventinfo {
@@ -135,7 +169,7 @@ label {
 .eventdescription form {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     gap: 30px;
 
@@ -146,29 +180,25 @@ textarea {
     height: 198px;
     border: none;
     border-radius: 5px;
-
-    /* //styleName: Sub-Paragraph;
-font-family: Product Sans; */
     font-size: 12px;
     font-weight: 400;
     line-height: 14.56px;
     text-align: left;
-    /* padding-left: 10px; */
-    /* padding-top: 10px; */
+    border: 1px solid #ECECEC;
 
 }
 
-input[type='file'] {
+
+/* input[type='file'] {
     color: transparent;
-}
+} */
 
-.eventdescription form .inputimg {
+/* .eventdescription form .inputimg {
     width: 813px;
     height: 254px;
     background-color: #ECECEC;
     border-radius: 15px;
-
-}
+} */
 
 
 .hostbutton {
@@ -180,16 +210,9 @@ input[type='file'] {
     border-radius: 5px;
     cursor: pointer;
     border: none;
-
-
     font-size: 16px;
     font-weight: 400;
     line-height: 19.41px;
     text-align: center;
     color: #ffffff;
-
-
-
-
-
 }
