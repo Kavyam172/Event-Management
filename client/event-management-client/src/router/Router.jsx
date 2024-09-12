@@ -6,6 +6,7 @@ import Register from "../components/registerinevent/Register";
 import Host from "../components/hostevent/Host";
 import Each from "../components/eachevent/Each";
 import Signup from "../components/signup/Signup";
+import Signin from "../components/signin/Signin";
 
 const Router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ const Router = createBrowserRouter([
                 path:"/nameevent",
                 element:<Each/>
 
+            },
+            {
+                path:"/venuedetail",
+                element:<Each/>
+
             }
            
         ]
@@ -41,6 +47,11 @@ const Router = createBrowserRouter([
     {
         path:'/signup',
         element:<Signup/>
+    },
+    {
+        path:'/signin',
+        element:<Signin/>
+        
     }
     
 

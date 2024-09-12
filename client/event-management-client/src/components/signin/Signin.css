@@ -1,0 +1,69 @@
+.signupcontainer .leftbox1{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5) ), url(../../assets/signin/signinimg.svg);
+    width: 600px;
+    height: 900px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    object-fit: cover;
+    border-radius: 3px;
+
+    align-items: center;
+}
+.signupcontainer .leftbox1 h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-size: 40px;
+font-weight: 700;
+line-height: 48.52px;
+text-align: center;
+color: #FFFFFF;
+
+
+    
+}
+.signupcontainer .leftbox1 p{
+   
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: center;
+color: #FFFFFF;
+
+}
+
+.signupcontainer .rightbox{
+    padding-top:200px;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    
+}
+
+.signupcontainer .leftbox1 .signupbtn{
+    width: Fixed (128px)px;
+height: Fixed (49px)px;
+top: 498px;
+left: 233.5px;
+padding: 15px 40px 15px 40px;
+gap: 10px;
+border-radius: 5px ;
+border: none;
+cursor : pointer;
+
+
+
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: center;
+color: #FFFFFF;
+background-color: rgba(255, 255, 255, 0.4);
+
+
+}
