@@ -7,7 +7,7 @@ body{
     
 }
 .signupcontainer .leftbox{
-    background-image: url(D:\EM\Event-Management\client\event-management-client\src\assets\signup\signupimg.svg);
+    background-image: url(../../assets/signup/signupimg.svg);
     width: 600px;
     height: 900px;
     background-repeat: no-repeat;
@@ -16,7 +16,6 @@ body{
     justify-content: center;
     gap: 30px;
     object-fit: cover;
-
     align-items: center;
 }
 .signupcontainer .leftbox h1{
