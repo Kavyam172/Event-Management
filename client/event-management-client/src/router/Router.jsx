@@ -40,7 +40,9 @@ const Router = createBrowserRouter([
                 path:"/venuedetail",
                 element:<Each/>
 
-            }
+            },
+            
+
            
         ]
     },
