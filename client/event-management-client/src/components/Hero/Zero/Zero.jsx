@@ -15,9 +15,9 @@ const EventHive = () => {
         <section className="search">
           <div className="search-container">
             <div className="search-section">
-              <h3 className="section-heading">Category</h3>
+              <h3 className="section-heading">Looking For</h3>
               <select className="category-select">
-                <option value="all">All Categories</option>
+                <option value="all">Choose event type</option>
                 <option value="music">Music</option>
                 <option value="sports">Sports</option>
                 <option value="theatre">Theatre</option>
@@ -26,14 +26,14 @@ const EventHive = () => {
             <div className="search-section">
               <h3 className="section-heading">Location</h3>
               <select className="location-select">
-                <option value="all">All Locations</option>
+                <option value="all">Choose Locations</option>
                 <option value="new-york">New York</option>
                 <option value="los-angeles">Los Angeles</option>
                 <option value="chicago">Chicago</option>
               </select>
             </div>
             <div className="search-section">
-              <h3 className="section-heading">Date</h3>
+              <h3 className="section-heading">When</h3>
               <input type="date" className="date-input" />
             </div>
             <div className="search-btn-container">

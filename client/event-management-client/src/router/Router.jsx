@@ -7,6 +7,7 @@ import Host from "../components/hostevent/Host";
 import Each from "../components/eachevent/Each";
 import Signup from "../components/signup/Signup";
 import Signin from "../components/signin/Signin";
+import Event from "../components/allEvents/event";
 
 const Router = createBrowserRouter([
     {
@@ -40,7 +41,12 @@ const Router = createBrowserRouter([
                 path:"/venuedetail",
                 element:<Each/>
 
+            },
+            {
+                path:"/events",
+                element:<Event/>
             }
+           
            
         ]
     },
