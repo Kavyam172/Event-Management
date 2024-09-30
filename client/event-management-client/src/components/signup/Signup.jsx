@@ -1,13 +1,35 @@
 import React from 'react'
 import "./Signup.css"
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Signup = () => {
+
+    const handleSignup = () => {
+        const name = document.getElementById('upname').value
+        const password = document.getElementById('uppassword').value
+        const email = document.getElementById('email').value
+        axios.post('http://localhost:3000/signup', {
+            name: name,
+            email: email,
+            password: password
+        }).then((response) => {
+            console.log(response)
+            window.location.href = '/signin'
+        }).catch((error) => {
+            console.log(error)
+        })
+
+    }
+
   return (
     <div className="signupcontainer">
         <div className="leftbox">
             <h1>Welcome back</h1>
             <p>To keep connected with us provide us with your information</p>
+            <Link to={"../signin"}>
             <button className="signupbtn">Sign in</button>
+            </Link>
         </div>
         <div className="rightbox">
             <h3>Event <span>Hive</span></h3>
@@ -18,18 +40,18 @@ const Signup = () => {
                     <label htmlFor="upname">YOUR NAME</label>
                     <input type="text" placeholder='Enter your name' id='upname'/>
                     </div>
+                    <div className="upemail">
+                    <label htmlFor="upemail">YOUR EMAIL</label>
+                    <input type="email" placeholder='Enter your email' id='upemail'/>
+                    </div>
                     <div className="uppassword">
                     <label htmlFor="uppassword">PASSWORD</label>
-                    <input type="text" placeholder='Enter your password' id='uppassword'/>
-                    </div>
-                    <div className="upconfirm">
-                    <label htmlFor="upconfirm">CONFIRM PASSWORD</label>
-                    <input type="text" placeholder='Enter your password' id='upconfirm'/>
+                    <input type='password' placeholder='Enter your password' id='uppassword'/>
                     </div>
                 </form>
             </div>
             <div className="googleupbtn">
-                <button className="simpsignup">Sign Up</button>
+                <button className="simpsignup" onClick={handleSignup}>Sign Up</button>
                 <p>or</p>
                 <button className="googlebtn"><img src="\src\assets\signup\Logo (3).svg" alt="" /> Sign up with  Google</button>
             </div>

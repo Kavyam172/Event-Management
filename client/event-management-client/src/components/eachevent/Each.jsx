@@ -4,28 +4,36 @@ import Each1 from './Each1/Each1'
 import Each2 from './Each2/Each2'
 import Each3 from './Each3/Each3'
 import Each4 from './Each4/Each4'
+import Cookies from 'js-cookie'
+import axios from 'axios'
 
 const Each = () => {
 
     const [event, setEvent] = useState({})
     const [venue, setVenue] = useState({})
 
+    
     //fetch event by event id from server
-    const fetchEvent = async () => {
+    const fetchEvent = async (token) => {
         //get event id from url
         const eventId = window.location.href.split('/')[4]
-        const res = await fetch('http://localhost:3000/events/'+eventId)
+        const res = await axios.get('http://localhost:3000/events/'+eventId,{
+            headers: { Authorization: `Bearer ${token}` }
+        })
         const data = await res.json()
         console.log(data)
         setEvent(data.event)
         setVenue(data.venue)
     }
-
-    //useEffect to call fetchEvent function
+    
     useEffect(() => {
-        fetchEvent()
-    }, [])
-
+        const token = Cookies.get('token'); // Get the token from cookies
+        if (!token) {
+            window.location.href = '/signin';
+            return;
+        }
+        fetchEvent(token)
+    }, []);
 
 
     return (

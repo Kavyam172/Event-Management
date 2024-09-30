@@ -27,7 +27,9 @@ const UpcomingEvents = () => {
 
       <div className="events-grid">
         {events.map((event) => (
-          <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true}/>
+          <Link to={"./event/"+event._id}>
+            <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true} />
+          </Link>
         ))}
       </div>
 

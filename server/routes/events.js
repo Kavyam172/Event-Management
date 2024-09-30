@@ -4,6 +4,7 @@ const Events = require('../models/Events');
 const Venues = require('../models/Venues');
 const upload = require('../config/multerconfig');
 const { default: mongoose } = require('mongoose');
+const { protect, authorize } = require('../middlewares/auth');
 
 // get all events sorted according to the start date such that the event with the earliest start date comes first
 router.get('/', async (req, res) => {
@@ -16,11 +17,10 @@ router.get('/', async (req, res) => {
 });
 
 // get details of a particular event by id
-router.get('/:eventId', async (req, res) => {
+router.get('/:eventId',authorize(['normal','orgainzer']), async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);
         const venue = await Venues.findById(event.venueid);
-        //send both event and venue details
         res.json({event, venue}); 
     } catch (err) {
         res.json({ message: err });
@@ -28,7 +28,7 @@ router.get('/:eventId', async (req, res) => {
 });
 
 // endpoint to create new event
-router.post('/',upload.single('image'), async (req, res) => {
+router.post('/',protect,authorize(['organizer']) ,upload.single('image'), async (req, res) => {
     console.log(req.body);
     const imageUrl = `/uploads/${req.file.filename}`
 

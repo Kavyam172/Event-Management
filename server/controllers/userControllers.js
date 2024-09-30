@@ -1,0 +1,49 @@
+const Users = require('../models/Users');
+const jwt = require('jsonwebtoken');
+const Users = require('../models/Users');
+const { generateToken } = require('../jwtconfig');
+const bcrypt = require('bcryptjs');
+
+const userLogin = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await Users.findOne({ email: email })
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        const token = generateToken(user);
+        res.cookie('token', token, { 
+            httpOnly: true,
+            sameSite: 'strict',
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+            secure: process.env.NODE_ENV === 'production' 
+        });
+        res.status(200).json({ user });
+    } catch (error) {
+        res.status(500).json({ message: 'Something went wrong' });
+    }
+}
+
+const userSignup = async (req, res) => {
+    const { name, email, password } = req.body;
+    try {
+        const user = await Users.findOne({ email: email });
+        if (user) {
+            return res.status(400).json({ message: 'User already exists' });
+        } else {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const newUser = await Users.create({ name, email, password: hashedPassword });
+            newUser.save();
+            res.status(201).json({ newUser });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Something went wrong' });
+    }
+}

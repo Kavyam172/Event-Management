@@ -40,11 +40,6 @@ const Router = createBrowserRouter([
             {
                 path:"/events",
                 element:<Event/>
-            },
-            {
-                path:"/venuedetail",
-                element:<Each/>
-
             }
 
            
