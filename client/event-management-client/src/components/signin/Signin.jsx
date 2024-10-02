@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Signin.css"
 import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import axios from 'axios'
 
 const Signin = () => {
     const [email, setEmail] = useState('');
@@ -11,18 +12,18 @@ const Signin = () => {
         e.preventDefault();
 
         try {
-          const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+          const res = await axios.post('http://localhost:3000/users/login', { email, password });
           Cookies.set('token', res.data.token,{ expires:1 }); // Set token to cookie
           window.location.href = '/'; // Redirect to home page
         } catch (err) {
-          setError('Invalid credentials');
+          console.log(err);
         }
     };
   return (
     <div className='signupcontainer'>
          <div className="rightbox koka">
             <h3>Event <span>Hive</span></h3>
-            <h1>Sign Up to Event Hive</h1>
+            <h1>Sign In to Event Hive</h1>
             <div className="signupinfo">
                 <form>
                     <div className="upname">

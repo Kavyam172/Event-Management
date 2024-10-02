@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     },
     bookings: {
         type: Array,
-        default: []
+        default: [],
     },
     createdAt: {
         type: Date,

@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Signup.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Signup = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleSignup = () => {
-        const name = document.getElementById('upname').value
-        const password = document.getElementById('uppassword').value
-        const email = document.getElementById('email').value
-        axios.post('http://localhost:3000/signup', {
+        axios.post('http://localhost:3000/users/signup', {
             name: name,
             email: email,
             password: password
@@ -38,15 +38,15 @@ const Signup = () => {
                 <form>
                     <div className="upname">
                     <label htmlFor="upname">YOUR NAME</label>
-                    <input type="text" placeholder='Enter your name' id='upname'/>
+                    <input type="text" placeholder='Enter your name' id='upname' onChange={(e)=>setName(e.target.value)}/>
                     </div>
                     <div className="upemail">
                     <label htmlFor="upemail">YOUR EMAIL</label>
-                    <input type="email" placeholder='Enter your email' id='upemail'/>
+                    <input type="email" placeholder='Enter your email' id='upemail' onChange={(e)=>setEmail(e.target.value)}/>
                     </div>
                     <div className="uppassword">
                     <label htmlFor="uppassword">PASSWORD</label>
-                    <input type='password' placeholder='Enter your password' id='uppassword'/>
+                    <input type='password' placeholder='Enter your password' id='uppassword' onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
                 </form>
             </div>

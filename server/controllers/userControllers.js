@@ -1,10 +1,10 @@
 const Users = require('../models/Users');
 const jwt = require('jsonwebtoken');
-const Users = require('../models/Users');
-const { generateToken } = require('../jwtconfig');
+const { generateToken } = require('../config/jwtconfig');
 const bcrypt = require('bcryptjs');
 
 const userLogin = async (req, res) => {
+    console.log(req.body);
     const { email, password } = req.body;
     try {
         const user = await Users.findOne({ email: email })
@@ -32,6 +32,7 @@ const userLogin = async (req, res) => {
 }
 
 const userSignup = async (req, res) => {
+    console.log(req.body);
     const { name, email, password } = req.body;
     try {
         const user = await Users.findOne({ email: email });
@@ -47,3 +48,5 @@ const userSignup = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong' });
     }
 }
+
+module.exports = { userLogin, userSignup };

@@ -20,8 +20,7 @@ const Each = () => {
         const res = await axios.get('http://localhost:3000/events/'+eventId,{
             headers: { Authorization: `Bearer ${token}` }
         })
-        const data = await res.json()
-        console.log(data)
+        const data = res.data
         setEvent(data.event)
         setVenue(data.venue)
     }

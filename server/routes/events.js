@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // get details of a particular event by id
-router.get('/:eventId',authorize(['normal','orgainzer']), async (req, res) => {
+router.get('/:eventId', async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);
         const venue = await Venues.findById(event.venueid);
