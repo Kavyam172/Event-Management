@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import './Host.css'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)   
 
 const Host = () => {
 
@@ -79,9 +83,24 @@ const Host = () => {
                 }
             }
         )
+        if(res.status === 200){
+            MySwal.fire({
+                title: 'Event Created',
+                text: 'Your event has been created successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            })
+        }else if(res.status === 500){
+            MySwal.fire({
+                title: 'Error',
+                text: 'There was an error creating the event',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+            })
+        }
 
-        // const data = await res.json()
-        console.log(res)        
+        console.log(res)
+
     }
     
 

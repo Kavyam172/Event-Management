@@ -3,6 +3,10 @@ import "./Signin.css"
 import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const Signin = () => {
     const [email, setEmail] = useState('');
@@ -14,7 +18,13 @@ const Signin = () => {
         try {
           const res = await axios.post('http://localhost:3000/users/login', { email, password });
           Cookies.set('token', res.data.token,{ expires:1 }); // Set token to cookie
-          window.location.href = '/'; // Redirect to home page
+          MySwal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            confirmButtonText: 'Proceed to Home Page'
+          }).then(() => {
+            window.location.href = '/'; // Redirect to home page
+          });
         } catch (err) {
           console.log(err);
         }

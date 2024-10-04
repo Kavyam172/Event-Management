@@ -21,11 +21,13 @@ const Each = () => {
             headers: { Authorization: `Bearer ${token}` }
         })
         const data = res.data
+        console.log(data)
         setEvent(data.event)
         setVenue(data.venue)
     }
     
     useEffect(() => {
+        window.scrollTo(0, 0);
         const token = Cookies.get('token'); // Get the token from cookies
         if (!token) {
             window.location.href = '/signin';

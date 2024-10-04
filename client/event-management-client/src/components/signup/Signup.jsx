@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import "./Signup.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const Signup = () => {
     const [name, setName] = useState('')
@@ -15,7 +19,13 @@ const Signup = () => {
             password: password
         }).then((response) => {
             console.log(response)
-            window.location.href = '/signin'
+            MySwal.fire({
+                icon: 'success',
+                title: 'Signup Successful',
+                confirmButtonText: 'Proceed to Sign In'
+            }).then(() => {
+                window.location.href = '/signin'
+            });
         }).catch((error) => {
             console.log(error)
         })
