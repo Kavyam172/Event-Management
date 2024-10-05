@@ -5,6 +5,8 @@ const Venues = require('../models/Venues');
 const upload = require('../config/multerconfig');
 const { default: mongoose } = require('mongoose');
 const { protect, authorize } = require('../middlewares/auth');
+const { uploadImage } = require('../config/cloudinaryconfig');
+const fs = require('fs');
 
 // get all events sorted according to the start date such that the event with the earliest start date comes first
 router.get('/', async (req, res) => {
@@ -30,13 +32,21 @@ router.get('/:eventId', async (req, res) => {
 // endpoint to create new event
 router.post('/',protect,authorize(['organizer']) ,upload.single('image'), async (req, res) => {
     console.log(req.body);
-    const imageUrl = `/uploads/${req.file.filename}`
+    const imageUrl = uploadImage(`/uploads/${req.file.filename}`)
+    
+    fs.unlink(`./uploads/${req.file.filename}`, (err) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
+
 
     const event = new Events({
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,
-        banner: 'http://localhost:3000'+imageUrl,
+        banner: imageUrl,
         venueid: req.body.venue,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
