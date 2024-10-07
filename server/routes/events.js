@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 router.get('/:eventId', async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);
+        console.log(event.venueid);
         const venue = await Venues.findById(event.venueid);
         res.json({event, venue}); 
     } catch (err) {
@@ -30,9 +31,10 @@ router.get('/:eventId', async (req, res) => {
 });
 
 // endpoint to create new event
-router.post('/',protect,authorize(['organizer']) ,upload.single('image'), async (req, res) => {
+router.post('/' ,upload.single('image'), async (req, res) => {
     console.log(req.body);
-    const imageUrl = uploadImage(`/uploads/${req.file.filename}`)
+    const imageUrl = await uploadImage(`./uploads/${req.file.filename}`)
+    console.log(imageUrl);
     
     fs.unlink(`./uploads/${req.file.filename}`, (err) => {
         if (err) {

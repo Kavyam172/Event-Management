@@ -19,7 +19,6 @@
     height: 595px;
     background-repeat: no-repeat;
     border-radius: 10px;
-    background-image: url(../../../assets/eachevent/bgeachevent.svg);
 }
 
 .bgimage .dream {
@@ -162,6 +161,7 @@
     border: none;
     padding: 0px 5px 3px 1px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .bgimage .back span{
     font-size: 20px;

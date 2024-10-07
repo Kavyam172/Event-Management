@@ -1,10 +1,9 @@
 .middle1box {
-    /* margin: 0px 100px 100px 0px; */
-    padding: 20px 50px;
+    width: 70vw;
+    margin: auto;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 80px;
+    justify-content: space-between;
+    margin-top: 40px;
 }
 
 .middle1box .descriptionevent .descriptioneventin {
@@ -82,7 +81,7 @@
     gap: 30px;
 }
 
-.middle1box .maploc .h3 {
+.middle1box .maploc h3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -92,10 +91,10 @@
 }
 .middle1box .maploc .mapin h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: 24px;
-font-weight: 400;
-line-height: 29.11px;
-text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.11px;
+    text-align: left;
 
 
 }

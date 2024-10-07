@@ -11,9 +11,7 @@ cloudinary.config({
 //upload image
 const uploadImage = async (filepath) => {
     try {
-        const uploadedResponse = await cloudinary.uploader.upload(filepath, {
-            upload_preset: 'dev_setups'
-        });
+        const uploadedResponse = await cloudinary.uploader.upload(filepath);
         const url = cloudinary.url(uploadedResponse.public_id, {
             transformation: [
                 {

@@ -39,7 +39,7 @@ const Each = () => {
 
     return (
         <>
-        <Each1 title={event.title} venue={venue.name} date={event.startDate}/>
+        <Each1 banner={event.banner} title={event.title} venue={venue.name} date={event.startDate}/>
         <Each2 description={event.description} location={venue.address} starttime={event.startTime} endtime = {event.endTime} title={event.title}/>
         <Each3 category={event.category}/>
         </>
