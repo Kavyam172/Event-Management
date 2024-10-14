@@ -42,8 +42,12 @@ export default function Navbar(){
 
                             {isHovered && (
                                 <div className="dropdown">
-                                <div className="dropdown-items"><FontAwesomeIcon icon={faBell} /> Notifications</div>
-                                <div className="dropdown-items"><FontAwesomeIcon icon={faUser} /> Profile</div>
+                                <Link>
+                                    <div className="dropdown-items"><FontAwesomeIcon icon={faBell} /> Notifications</div>
+                                </Link>
+                                <Link to={"./profile"}>
+                                    <div className="dropdown-items"><FontAwesomeIcon icon={faUser} /> Profile</div>
+                                </Link>
                                 <div className="dropdown-items" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt}/> Logout</div>
                                 </div>
                             )}

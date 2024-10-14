@@ -31,7 +31,7 @@ router.get('/:eventId', async (req, res) => {
 });
 
 // endpoint to create new event
-router.post('/' ,upload.single('image'), async (req, res) => {
+router.post('/' ,upload.single('image'),protect,authorize(['organizer']), async (req, res) => {
     console.log(req.body);
     const imageUrl = await uploadImage(`./uploads/${req.file.filename}`)
     console.log(imageUrl);

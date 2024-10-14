@@ -3,6 +3,8 @@ import axios from 'axios'
 import './Host.css'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Cookies from 'js-cookie'
+
 
 const MySwal = withReactContent(Swal)   
 
@@ -43,6 +45,14 @@ const Host = () => {
     }
     
     useEffect(() => {
+        window.scrollTo(0, 0);
+        const token = Cookies.get('token'); // Get the token from cookies
+        console.log(token)
+        if (!token) {
+            window.location.href = '/signin';
+            return;
+        }
+
         addCategory(categories)
         fetchVenues()
     }, [])
@@ -90,7 +100,15 @@ const Host = () => {
                 icon: 'success',
                 confirmButtonText: 'Okay'
             })
-        }else if(res.status === 500){
+        }else if(res.status === 403){
+            MySwal.fire({
+                title: 'Error',
+                text: 'You are not an organizer',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+            })
+        }
+        else if(res.status === 500){
             MySwal.fire({
                 title: 'Error',
                 text: 'There was an error creating the event',

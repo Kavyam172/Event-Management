@@ -61,3 +61,8 @@
 .dropdown-items:hover{
     background-color: #d4d4d4;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
