@@ -13,7 +13,7 @@ const eventSchema = new mongoose.Schema({
     },
     venueid: {
         type:String,
-        required: true
+        default: "online",
     },
     startDate: {
         type: Date,

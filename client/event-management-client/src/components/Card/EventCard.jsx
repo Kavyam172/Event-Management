@@ -1,7 +1,7 @@
 import React from 'react'
 import './EventCard.css';
 
-const EventCard = ({ title, startdate, location, image, isFree }) => {
+const EventCard = ({ title, startdate, venue, image, isFree }) => {
     return (
         <div className='firstbox'>
             <div className="event-card">
@@ -12,9 +12,9 @@ const EventCard = ({ title, startdate, location, image, isFree }) => {
                 <div className="event-info">
                     <h3>{title}</h3>
                     <p>
-                        {startdate} - {location}
+                        {startdate?.slice(0,10)}
                     </p>
-                    <h6>ONLINE EVENT - Attend anywhere </h6>
+                    {venue!=="online"?<h6>OFFLINE EVENT - Click to See More </h6>: <h6>ONLINE EVENT - Attend from anywhere </h6>}
                 </div>
 
             </div>

@@ -12,13 +12,12 @@ const UpcomingEvents = () => {
         const response = await fetch('http://localhost:3000/events');
         const data = await response.json();
         console.log(data)
-        //save only first six events
         data.length = 6;
         setEvents(data);
     };
 
     useEffect(() => {
-        fetchEvents();
+      fetchEvents();
     }, []);
 
   return (
@@ -27,7 +26,7 @@ const UpcomingEvents = () => {
 
       <div className="events-grid">
         {events.map((event) => (
-          <Link to={"./event/"+event._id}>
+          <Link key={event._id} to={"./event/"+event._id}>
             <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true} />
           </Link>
         ))}
