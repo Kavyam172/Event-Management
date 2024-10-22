@@ -17,6 +17,7 @@ const Signin = () => {
 
         try {
           const res = await axios.post('http://localhost:3000/users/login', { email, password });
+          // console.log(document.cookie)
           Cookies.set('token', res.data.token,{ expires:7 }); // Set token to cookie
           MySwal.fire({
             icon: 'success',

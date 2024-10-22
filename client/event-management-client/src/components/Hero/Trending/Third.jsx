@@ -28,7 +28,7 @@ const TrendingColleges=()=>{
             <div className="events-grid">
                 {venues.map((venue)=>(
                     <Link to={"./venues/"+venue._id} key={venue._id}>
-                        <VenueCard key ={venue._id} name={venue.name} location={venue.address}/>
+                        <VenueCard key ={venue._id} image={venue.image} name={venue.name} location={venue.address}/>
                     </Link>
                 ))}
             </div >

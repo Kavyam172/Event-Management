@@ -4,6 +4,7 @@ import './Host.css'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Cookies from 'js-cookie'
+import {jwtDecode} from 'jwt-decode'
 
 
 const MySwal = withReactContent(Swal)   
@@ -11,11 +12,26 @@ const MySwal = withReactContent(Swal)
 const Host = () => {
 
     const [venues, setVenues] = useState([])
+    const [auth, setAuth] = useState(false)
 
     //dymaically adding categories
     const categories = ['Music', 'Dance', 'Art', 'Theatre', 'Comedy', 'Food', 'Sports', 'Fitness', 'Health', 'Fashion', 'Technology', 'Business', 'Science', 'Travel', 'Religion', 'Charity', 'Education', 'Family', 'Community', 'Film', 'Media', 'Government', 'Home', 'Auto', 'Hobbies', 'Other']
     const selectCategory = useRef(null)
     const selectVenue = useRef(null)
+
+    const checkAuth = () => {
+        const token = Cookies.get('token')
+        if (token) {
+            const decoded = jwtDecode(token)
+            if (decoded.role === 'organizer') {
+                setAuth(true)
+            }
+        }
+        else{
+            window.location.href = '/signin'
+        }
+    }
+        
     
     const addCategory = (categories) => {
         categories.forEach((category) => {
@@ -43,6 +59,24 @@ const Host = () => {
             selectVenue.current.appendChild(option)
         })
     }
+
+    useEffect(() => {
+        checkAuth()
+        if(auth){
+            console.log('User is an organizer')
+        }
+        else{
+            MySwal.fire({
+                icon: 'error', 
+                title: 'You are not an organizer',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                if(result.isConfirmed){
+                    window.location.href = '/'
+                }
+            })
+        }
+    }, [])
     
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -55,7 +89,7 @@ const Host = () => {
 
         addCategory(categories)
         fetchVenues()
-    }, [])
+    }, [auth])
 
     useEffect(() => {
         addVenues()
