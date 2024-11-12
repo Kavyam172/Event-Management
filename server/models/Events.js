@@ -11,7 +11,10 @@ const eventSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    venueid: String,
+    venueid: {
+        type:String,
+        required: true
+    },
     startDate: {
         type: Date,
         default: new Date()

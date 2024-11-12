@@ -1,31 +1,41 @@
 /* Global styles */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
+main {
+  padding: 0vw 3vw 0vw 3vw;
+}
+
 /* Hero section styles */
 .hero {
   position: relative;
-  background-image: url('src/assets/Hero-Image.svg'); /* Replace with your image */
+  background-image: url('src/assets/Hero-Image.svg');
+  /* Replace with your image */
   background-size: cover;
   background-position: center;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
+  justify-content: flex-end;
+  /* Align content to the bottom */
   align-items: center;
   text-align: center;
   color: white;
+  border-radius: 1vw;
 }
 
 .overlay {
   background: transparent;
   padding: 20px;
-  font-size: 28px;
-  margin-bottom: auto; /* Push the overlay to the top */
+  font-size: 35px;
+  margin-bottom: auto;
+  /* Push the overlay to the top */
+  width: 60vh;
 }
 
 .hero-nav button {
@@ -34,36 +44,47 @@ html, body {
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
-  padding: 10px;
   cursor: pointer;
   font-size: 18px;
   color: #8a2be2;
 }
 
 .hero-nav .prev {
+  border-radius: 100%;
+  padding: 10px 15px;
   left: 20px;
 }
 
 .hero-nav .next {
+  border-radius: 100%;
+  padding: 10px 15px;
   right: 20px;
 }
 
 /* Search section styles */
 .search {
-  background-color: rgba(0, 31, 63, 0.8); /* Slightly transparent background */
+  position: relative;
+  top: 5vw;
+  background-color: #10107B;
   padding: 20px;
   text-align: center;
-  width: 100%; /* Full width */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  border-radius: 2vw;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  /* width: 100%; Full width */
 }
 
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 3vw;
 }
 
-.search-container select, .search-btn {
+.search-container select,
+.search-btn {
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -71,7 +92,8 @@ html, body {
 }
 
 .search-container select {
-  width: 200px;
+  height: 3vw;
+  width: 300px;
 }
 
 .search-btn {
@@ -79,11 +101,23 @@ html, body {
   color: white;
   cursor: pointer;
 }
-.search-section input{
+
+.section-heading {
+  margin-bottom: 1vw;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search-section input {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  width: 200px;
+  height: 3vw;
+  width: 300px;
 }
 
 /* Responsive styles */
@@ -97,7 +131,8 @@ html, body {
     gap: 10px;
   }
 
-  .search-container select, .search-btn {
+  .search-container select,
+  .search-btn {
     width: 100%;
   }
 }

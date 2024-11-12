@@ -41,3 +41,28 @@
     background-color: #7848F4;
     font-weight: bold;
 }
+
+.dropdown{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 150px;
+}
+
+.dropdown-items{
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.dropdown-items:hover{
+    background-color: #d4d4d4;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

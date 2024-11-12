@@ -1,15 +1,15 @@
 import React from 'react'
 import "./Each1.css"
 
-const Each1 = ({title,venue,date}) => {
+const Each1 = ({banner,title,venue,date}) => {
   return (
     <div className="eachcontainer">
 
 
-    <div className="bgimage">
+    <div className="bgimage" style={{background:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${banner})`}}>
         <div className="btn">
 
-            <button className="back"><span>‹</span> Back</button>
+            <button className="back" onClick={()=>{window.location.href = '/'}}><span>‹</span> Home</button>
         </div>
         <div className="dream">
             <div className="eventdesc">

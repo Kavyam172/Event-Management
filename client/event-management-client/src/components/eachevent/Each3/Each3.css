@@ -3,12 +3,11 @@ body{
 }
 
 .middle2box {
-    width: 100vw;
+    width: 70vw;
+    margin: auto;
     display: flex;
-    gap: -100px;
-    /* justify-content: space-between; */
-    gap: 188px;
-    padding: 20px 50px;
+    justify-content: space-between;
+    margin-top: 40px;
 }
 
 .middle2box .organizer {
@@ -75,7 +74,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    width: 442px;
     height: 88px;
     top: 1274px;
     left: 780px;

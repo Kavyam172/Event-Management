@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./event.css";
 import EventCard from '../Card/EventCard';
+import { Link } from 'react-router-dom';
 
 const Event = () => {
   const [weekdayFilter, setWeekdayFilter] = useState('All');
@@ -17,6 +18,7 @@ const Event = () => {
     };
 
     useEffect(() => {
+      window.scrollTo(0,0);
         fetchEvents();
     }, []);
 
@@ -81,7 +83,10 @@ const Event = () => {
       
       <div className="events-grid-all">
         {events.map((event) => (
+          <Link to={"http://localhost:5173/event/"+event._id}>
             <EventCard key={event._id} title={event.title} startdate={event.startDate} image={event.banner} isFree={event.price>0?false:true}/>
+
+          </Link>
           ))}
       </div>
     </div>

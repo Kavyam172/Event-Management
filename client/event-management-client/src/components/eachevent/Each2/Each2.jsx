@@ -16,8 +16,8 @@ const Each2 = ({description,location,starttime,endtime,title}) => {
                 </div>
             </div>
             <div className="maploc">
-                <h3 className='h3'>Event location</h3>
-                <img src="\src\assets\eachevent\map 1.svg" alt="" />
+                <h3>Event location</h3>
+
                 <div className="mapin">
                     <h3>{title}</h3>
                     <p className="locp0">{location}</p>
