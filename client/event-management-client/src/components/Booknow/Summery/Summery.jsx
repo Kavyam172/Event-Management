@@ -91,7 +91,7 @@ const Summery = () => {
         </div>
       </div>
 
-      <div className="proceed">
+      <div className="sproceed">
         <div className="total">
           <h2>Total Payable Amount </h2>
           <h2>1690$</h2>

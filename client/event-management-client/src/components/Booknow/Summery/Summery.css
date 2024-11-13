@@ -177,23 +177,23 @@
     font-weight:10;
     
 }
-.proceed{
+.sproceed{
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
     align-items: center;
 }
-.proceed .total{
+.sproceed .total{
     display: flex;
     flex-direction: row;
     gap: 90px;
 }
-.proceed .total h2{
+.sproceed .total h2{
     color: aliceblue;
 }
 
-.proceed .btndetail button{
+.sproceed .btndetail button{
     height: 34px;
     width: 130px;
     border-radius: 5px;
