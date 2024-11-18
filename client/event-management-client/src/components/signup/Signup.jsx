@@ -58,6 +58,7 @@ const Signup = () => {
                     <label htmlFor="uppassword">PASSWORD</label>
                     <input type='password' placeholder='Enter your password' id='uppassword' onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
+                    <input type="checkbox" name="" id="" />
                 </form>
             </div>
             <div className="googleupbtn">

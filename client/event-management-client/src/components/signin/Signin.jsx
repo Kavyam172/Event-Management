@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Signin.css"
 import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
@@ -12,12 +12,22 @@ const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // useEffect to check if user is already logged in
+    useEffect(() => {
+        const checkLoggedIn = async () => {
+          const token = Cookies.get('token');
+          if (token) {
+            window.location.href = '/'; 
+          }
+        };
+        checkLoggedIn();
+      }, []); 
+
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
           const res = await axios.post('http://localhost:3000/users/login', { email, password });
-          // console.log(document.cookie)
           Cookies.set('token', res.data.token,{ expires:7 }); // Set token to cookie
           MySwal.fire({
             icon: 'success',

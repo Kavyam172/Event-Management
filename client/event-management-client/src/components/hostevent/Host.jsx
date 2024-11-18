@@ -19,10 +19,12 @@ const Host = () => {
     const selectCategory = useRef(null)
     const selectVenue = useRef(null)
 
+
     const checkAuth = () => {
         const token = Cookies.get('token')
         if (token) {
             const decoded = jwtDecode(token)
+            console.log(decoded.password)
             if (decoded.role === 'organizer') {
                 setAuth(true)
             }
@@ -51,7 +53,6 @@ const Host = () => {
 
     // function to add venues as options in select tag
     const addVenues = async () => {
-        console.log(venues)
         venues.forEach((venue) => {
             const option = document.createElement('option')
             option.value = venue._id
@@ -81,7 +82,6 @@ const Host = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         const token = Cookies.get('token'); // Get the token from cookies
-        console.log(token)
         if (!token) {
             window.location.href = '/signin';
             return;
@@ -123,7 +123,8 @@ const Host = () => {
         const res = await axios.post('http://localhost:3000/events', event,
             {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${Cookies.get('token')}`
                 }
             }
         )
@@ -150,8 +151,6 @@ const Host = () => {
                 confirmButtonText: 'Okay'
             })
         }
-
-        console.log(res)
 
     }
     

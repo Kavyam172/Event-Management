@@ -15,6 +15,10 @@ const eventSchema = new mongoose.Schema({
         type:String,
         default: "online",
     },
+    createdBy: {
+        type: String,
+        default: "admin"
+    },
     startDate: {
         type: Date,
         default: new Date()
