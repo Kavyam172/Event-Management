@@ -179,3 +179,13 @@ line-height: 19.41px;
 text-align: left;
 
 }
+#checkbox{
+    width: 26px;
+}
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    
+    
+}

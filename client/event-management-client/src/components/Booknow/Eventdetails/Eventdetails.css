@@ -1,0 +1,200 @@
+.EDcontainer{
+    height: 85vh;
+    width: 36vw;
+    border-radius: 5px;
+    background-color: #10107bc1;
+    background-blend-mode: darken;
+    /* opacity: 0.8; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 20px
+    
+    
+} 
+.ESPCdetails{
+    /* margin-top: 25px; */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    top: 5px;
+    color: aliceblue;
+}
+
+.line{
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #7848F4;
+}
+.cross img{
+    height: 2vh;
+    position: absolute;
+     right: 15px;
+    top: 12px; 
+    
+}
+.detailbox{
+     width: 86%;
+    height: 40%;
+    border: 2px solid aliceblue; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+    padding: 2.4% 2%;
+    gap: 2%;
+
+}
+.detailbox .leftdetail{
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+
+}
+/* .detailbox .leftdetail .datedetail{
+    display: flex;
+    flex-direction: column;
+
+}
+.detailbox .leftdetail .timedetail{
+    display: flex;
+    flex-direction: column;
+
+} */
+.detailbox .leftdetail .dtldetail{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    
+
+}
+.detailbox .leftdetail p{
+    font-size:smaller;
+    font-weight: 10;
+}
+.detailbox .rightdetail{
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+
+}
+.detailbox .rightdetail .titledetail{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+}
+.detailbox .rightdetail .titledetail p{
+    font-size:smaller;
+    font-weight: 10;
+
+}
+.detailbox .rightdetail .detailimg{
+    height: 20vh;
+    width: 16vw;
+    background-image: url('../src/assets/Booknow/bgimg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    /* margin-top: 4%;
+    margin-right: 3%; */
+    border: 1px solid aliceblue;
+   
+}
+.ticketprice{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: aliceblue;
+    
+}
+.ticketprice .regular{
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+
+}
+.ticketprice .regular .leftregu{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.ticketprice .regular .rightregu{
+    display: flex;
+    flex-direction: row;
+    width: 8vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+}
+.ticketprice .vip{
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+
+}
+.ticketprice .vip .leftvip{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.ticketprice .vip .rightvip{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 8vw;
+    height: 6vh;
+    
+    
+}
+.ticketprice p{
+    font-size: smaller;
+    font-weight:10;
+    
+}
+.minus{
+    height: 30px;
+    width: 30px;
+    color: black;
+    font-size: larger;
+    font-weight: 100;
+    border-radius: 50%;
+    background-color: aliceblue;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.plus{
+    height: 30px;
+    width: 30px;
+    color: black;
+    font-size: larger;
+    font-weight: 100;
+    border-radius: 50%;
+    background-color: aliceblue;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.proceed button{
+    height: 34px;
+    width: 90px;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: #7848F4;
+    font-size: medium;
+    border: 1px solid white;
+    cursor: pointer;
+}

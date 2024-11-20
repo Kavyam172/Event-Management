@@ -1,0 +1,12 @@
+.backimg{
+    background-image: url('../../assets/Booknow/bgimg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.4);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

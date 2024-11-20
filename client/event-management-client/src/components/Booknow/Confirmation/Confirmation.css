@@ -1,0 +1,129 @@
+.confirmcontainer{
+    height: 85vh;
+    width: 36vw;
+    border-radius: 5px;
+    background-color: #10107bc1;
+    background-blend-mode: darken;
+    /* opacity: 0.8; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 36px
+    
+    
+} 
+.ESPCdetails{
+    /* margin-top: 25px; */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    top: 5px;
+    color: aliceblue;
+}
+
+.line{
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #7848F4;
+}
+.cross img{
+    height: 2vh;
+    position: absolute;
+     right: 15px;
+    top: 12px; 
+    
+}
+.congrats{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.congrats h2{
+    color: aliceblue;
+}
+.congrats p{
+    color: aliceblue;
+}
+.congratsdetailbox{
+    width: 90%;
+    height: 25%;
+    border: 1px solid aliceblue;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.congratsdetailbox .congratimg{
+    background-image: url('../src/assets/Booknow/bgimg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+   
+
+    height: 80%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.congratsdetailbox .congratboxdetail{
+
+
+}
+
+.bookeddetail{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.bookeddetail .DMID{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+
+}
+.bookeddetail .DMID p{
+    color: aliceblue;
+    font-size: small;
+}
+.bookeddetail .DMID h5{
+    color: aliceblue;
+    font-size: medium;
+    /* font-style:inherit; */
+}
+
+.confirmproceed{
+    width: 100%;
+    display: flex;
+    justify-content:right;
+    padding: 20px;
+}
+.confirmproceed button{
+    height: 34px;
+    width: 180px;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: #7848F4;
+    font-size: medium;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+
