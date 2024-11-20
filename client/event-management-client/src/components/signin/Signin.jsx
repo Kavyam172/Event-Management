@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Signin.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import Swal from 'sweetalert2'
@@ -9,6 +9,7 @@ import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
 
 const Signin = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,7 +35,7 @@ const Signin = () => {
             title: 'Login Successful',
             confirmButtonText: 'Proceed to Home Page'
           }).then(() => {
-            window.location.href = '/'; // Redirect to home page
+            navigate(-1) // Redirect to home page
           });
         } catch (err) {
           console.log(err);

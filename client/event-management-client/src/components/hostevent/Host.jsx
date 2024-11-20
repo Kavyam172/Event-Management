@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Cookies from 'js-cookie'
 import {jwtDecode} from 'jwt-decode'
+import { useNavigate } from 'react-router-dom'
 
 
 const MySwal = withReactContent(Swal)   
@@ -24,7 +25,6 @@ const Host = () => {
         const token = Cookies.get('token')
         if (token) {
             const decoded = jwtDecode(token)
-            console.log(decoded.password)
             if (decoded.role === 'organizer') {
                 setAuth(true)
             }

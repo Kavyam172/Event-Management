@@ -9,6 +9,7 @@ import Signup from "../components/signup/Signup";
 import Event from "../components/allEvents/Event";
 import Signin from "../components/signin/Signin";
 import Venue from "../components/venuedetail/Venue";
+import Profile from "../components/Profile/Profile";
 
 const Router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const Router = createBrowserRouter([
             {
                 path:"/venues/:id",
                 element:<Venue/>
+            },
+            {
+                path:"/profile",
+                element:<Profile/>
             }
            
         ]
