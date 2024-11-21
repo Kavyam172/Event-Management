@@ -1,7 +1,7 @@
 import React from 'react'
 import './Summery.css'
 
-const Summery = () => {
+const Summery = ({next}) => {
   return (
     <div className="EDcontainer">
       <div className="cross">
@@ -97,7 +97,7 @@ const Summery = () => {
           <h2>1690$</h2>
         </div>
         <div className="btndetail">
-          <button>Proceed to pay</button>
+          <button onClick={next}>Proceed to pay</button>
         </div>
 
       </div>

@@ -28,6 +28,16 @@
     width: 100%;
     border-radius: 5px;
     background-color: #7848F4;
+    animation: slide 0.5s ease-in-out;;
+}
+@keyframes slide {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+    
 }
 .cross img{
     height: 2vh;

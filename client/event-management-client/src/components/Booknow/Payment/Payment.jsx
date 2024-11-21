@@ -1,7 +1,7 @@
 import React from 'react'
 import './Payment.css'
 
-const Payment = () => {
+const Payment = ({next}) => {
   return (
     <div className="PEDcontainer">
       <div className="cross">
@@ -81,7 +81,7 @@ const Payment = () => {
 
 
       <div className="pproceed">
-        <button>Proceed to Pay</button>
+        <button onClick={next}>Proceed to Pay</button>
       </div>
 
     </div>

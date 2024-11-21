@@ -172,6 +172,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
 }
 .plus{
@@ -186,6 +187,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
 }
 .proceed button{
