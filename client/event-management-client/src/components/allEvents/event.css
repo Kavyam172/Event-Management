@@ -74,11 +74,12 @@
 
 .filter-section {
   display: flex;
+  align-items: center;
   gap: 2vw;
 
 }
 
-.filter-section select {
+.filter-section select, .filter-section input {
   padding: 1vw;
   border: none;
   border-radius: 5px;

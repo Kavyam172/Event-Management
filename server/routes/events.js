@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// get details of a particular event by id
+// get details of a particular event by id 
 router.get('/:eventId', async (req, res) => {
     try {
         const event = await Events.findById(req.params.eventId);

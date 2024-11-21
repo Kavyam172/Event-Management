@@ -4,17 +4,21 @@ const venuesSchema = new mongoose.Schema({
     id: String,
     name: {
         type: String,
-        required: true,
+        required: true
     },
     address: {
         type: String,
-        required: true,
+        required: true
     },
     city: {
         type: String,
         default: null
     },
     state: {
+        type: String,
+        default: null
+    },
+    image: {
         type: String,
         default: null
     },

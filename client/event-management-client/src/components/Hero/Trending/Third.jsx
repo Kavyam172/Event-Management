@@ -1,29 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Third.css';
 import EventCard from '../../Card/EventCard';
-
+import VenueCard from './VenueCard/VenueCard';
+import { Link } from 'react-router-dom';
 
 
 
 const TrendingColleges=()=>{
-    const events=[
-        {
-            title:'BestSeller Book Bootcamp - write, Market & Publish Your Book - Lucknow',
-            date:'Saturday,March 18, 12:00PM',
-            location: 'Lucknow',
-            image: '/src/assets/cardimg.svg', 
-            isFree: true,
-        }
-       
-        
-    ];
+    const [venues,setVenues] = useState([])
+
+    const fetchVenue = async (id) => {
+        const response = await fetch(`http://localhost:3000/venues/`);
+        const data = await response.json();
+        console.log(data)
+        data.length = 6;
+        setVenues(data);
+    };
+
+    useEffect(() => {
+        fetchVenue();
+    }, []);
+
     return(
         <div className="upcoming-events  Trending">
-            <h1> Trending <span>Colleges</span> </h1>
+            <h1> Trending <span>Venues</span> </h1>
             
             <div className="events-grid">
-                {events.map((event)=>(
-                    <EventCard key ={event.title} {...event}/>
+                {venues.map((venue)=>(
+                    <Link to={"./venues/"+venue._id} key={venue._id}>
+                        <VenueCard key ={venue._id} image={venue.image} name={venue.name} location={venue.address}/>
+                    </Link>
                 ))}
             </div >
             <div className="loadbutton">

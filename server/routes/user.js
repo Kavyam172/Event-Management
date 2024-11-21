@@ -4,8 +4,6 @@ const Users = require('../models/Users');
 const { userLogin, userSignup, userLogout } = require('../controllers/userControllers');
 const { protect } = require('../middlewares/auth');
 
-
-
 router.post('/login',userLogin)
 
 router.post('/signup',userSignup)

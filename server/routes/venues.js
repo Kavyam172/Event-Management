@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Venues = require('../models/Venues');
+const upload = require('../config/multerconfig');
+const { uploadImage } = require('../config/cloudinaryconfig');
+const fs = require('fs');
 
 // get all venues
 router.get('/', async (req, res) => {
@@ -23,14 +26,23 @@ router.get('/:venueId', async (req, res) => {
 });
 
 // endpoint to create new venue
-router.post('/', async (req, res) => {
+router.post('/', upload.single('image'),async (req, res) => {
+    console.log(req.file)
+    const imageUrl = await uploadImage(`./uploads/${req.file.filename}`)
+    fs.unlink(`./uploads/${req.file.filename}`, (err) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
     const venue = new Venues({
         name: req.body.name,
         address: req.body.address,
         city: req.body.city,
         state: req.body.state,
         zipcode: req.body.zipcode,
-        capacity: req.body.capacity
+        capacity: req.body.capacity,
+        image: imageUrl
     });
 
     try {

@@ -25,7 +25,7 @@ const userLogin = async (req, res) => {
             maxAge: 30 * 24 * 60 * 60 * 1000,
             secure: process.env.NODE_ENV === 'production' 
         });
-        res.status(200).json({ user });
+        res.status(200).json({token});
     } catch (error) {
         res.status(500).json({ message: 'Something went wrong' });
     }
