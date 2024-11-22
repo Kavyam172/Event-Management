@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const bookingsSchema = new mongoose.Schema({
     id: String,
     userid: String,
-    showid: String,
+    eventid: String,
+    paymentid: String,
     seats: Array,
     totalPrice: Number,
+    paymentMethod:String,
     paymentStatus:String,
     createdAt: {
         type: Date,
