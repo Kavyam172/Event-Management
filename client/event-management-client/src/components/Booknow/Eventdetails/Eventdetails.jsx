@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Eventdetails.css'
 
-const Eventdetails = () => {
+const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decreaseVipTickets,increaseRegularTickets,decreaseRegularTickets }) => {
+    
     return (
         <div className="EDcontainer">
             <div className="cross">
@@ -65,9 +66,9 @@ const Eventdetails = () => {
                         </div>
                     </div>
                     <div className="rightregu">
-                        <div className="minus">-</div>
-                        2
-                        <div className="plus">+</div>
+                        <div className="minus" onClick={decreaseRegularTickets}>-</div>
+                        {regularTickets}
+                        <div className="plus" onClick={increaseRegularTickets}>+</div>
                     </div>
 
 
@@ -81,16 +82,16 @@ const Eventdetails = () => {
                         </div>
                     </div>
                     <div className="rightvip">
-                        <div className="minus">-</div>
-                        3
-                        <div className="plus">+</div>
+                        <div className="minus" onClick={decreaseVipTickets}>-</div>
+                        {vipTickets}
+                        <div className="plus" onClick={increaseVipTickets}>+</div>
                     </div>
 
 
                 </div>
             </div>
             <div className="proceed">
-                <button>Proceed</button>
+                <button onClick={next}>Proceed</button>
             </div>
 
         </div>
