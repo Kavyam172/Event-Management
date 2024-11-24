@@ -1,10 +1,41 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Eventdetails.css'
+import { EventContext } from '../../../config/context'
+import axios from 'axios'
 
-const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decreaseVipTickets,increaseRegularTickets,decreaseRegularTickets }) => {
-    
+const Eventdetails = ({ next, regularTickets, vipTickets, increaseVipTickets, decreaseVipTickets, increaseRegularTickets, decreaseRegularTickets }) => {
+    const { event } = useContext(EventContext)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const handleProceed = async () => {
+        setIsLoading(true)
+
+        try {
+            const res = await axios.post('http://localhost:3000/bookings/check', {
+                eventId: event._id,
+                seats: regularTickets + vipTickets
+            })
+
+            if (res.status === 200) {
+                setIsLoading(false)
+                next()
+            } else {
+                setIsLoading(false)
+                alert('Not enough seats available')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className="EDcontainer">
+            {/* Loader */}
+            {isLoading && 
+            <div className="loader-overlay">
+                <div className="loader"></div>
+            </div>}
+
             <div className="cross">
                 <img src="../src/assets/Booknow/cross.svg" alt="" />
             </div>
@@ -26,17 +57,17 @@ const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decrea
                     <div className="dtldetail">
 
                         <h3>Date</h3>
-                        <p>Saturday, 24 March 2024</p>
+                        <p>{event.startDate.slice(0,10)}</p>
 
                     </div>
                     <div className="dtldetail">
                         <h3>Time</h3>
-                        <p>5 PM to 7 PM</p>
+                        <p>{event.startTime}-{event.endTime}</p>
 
                     </div>
                     <div className="dtldetail">
                         <h3>Location</h3>
-                        <p>465, Park Avenue Lane, New York City, NYC, 10029</p>
+                        <p>{event.venueid.name},{event.venueid.address}</p>
 
                     </div>
 
@@ -46,8 +77,7 @@ const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decrea
 
                     </div>
                     <div className="titledetail">
-                        <h3>Jeffery live in concert</h3>
-                        <p>Jason Entertainment</p>
+                        <h3>{event.title}</h3>
 
                     </div>
 
@@ -61,7 +91,7 @@ const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decrea
                     <div className="leftregu">
                         <p>Regular Price</p>
                         <div className="dollar">
-                            <h2>440$+</h2>
+                            <h2>Rs.{event.price}</h2>
                             <h6>Convenience fee + Taxes</h6>
                         </div>
                     </div>
@@ -77,7 +107,7 @@ const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decrea
                     <div className="leftvip">
                         <p>VIP Price</p>
                         <div className="dollar">
-                            <h2>440$+</h2>
+                            <h2>Rs.{event.price}</h2>
                             <h6>Convenience fee + Taxes</h6>
                         </div>
                     </div>
@@ -91,7 +121,7 @@ const Eventdetails = ({ next,regularTickets,vipTickets,increaseVipTickets,decrea
                 </div>
             </div>
             <div className="proceed">
-                <button onClick={next}>Proceed</button>
+                <button onClick={handleProceed}>Proceed</button>
             </div>
 
         </div>

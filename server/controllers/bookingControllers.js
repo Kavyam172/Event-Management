@@ -5,7 +5,8 @@ const Stripe = require('stripe')
 require('dotenv').config();
 
 const getCheckoutSession = async (req, res) => {
-    const { eventId,userId, seats } = req.body;
+    const { eventId, seats,bookingId } = req.body;
+    const userId = req.user.id;
     const event = await Events.findById(eventId);
     if(!event) return res.status(404).json({ message: 'Event not found' });
 
@@ -13,10 +14,10 @@ const getCheckoutSession = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: `${process.env.CLIENT_URL}/success`,
-        cancel_url: `${process.env.CLIENT_URL}/cancel`,
+        success_url: `${process.env.CLIENT_URL}/success?bookingId=${bookingId}&eventId=${eventId}`,
+        cancel_url: `${process.env.CLIENT_URL}/fail,bookingId=${bookingId}&eventId=${eventId}`,
         customer_email: req.user.email,
-        client_reference_id: req.user.id,
+        client_reference_id: userId,
         line_items: [
             {
                 price_data: {
@@ -30,11 +31,10 @@ const getCheckoutSession = async (req, res) => {
                 },
                 quantity: seats,
             },
-        ],
-        mode: 'payment',
-        success_url: `${process.env.CLIENT_URL}/success`,
-        cancel_url: `${process.env.CLIENT_URL}/cancel`,
+        ]
     });
+
+    res.status(200).json(session)
 }
 
 
@@ -110,15 +110,15 @@ const createBooking = async (req, res) => {
 
 const confirmBooking = async (req, res) => {
     try {
-        const { bookingId,paymentId } = req.body;
+        const { bookingId } = req.body;
         const booking = await Booking.findById(bookingId);
         if(!booking) return res.status(404).json({ message: 'Booking not found' });
         if(booking.paymentStatus === 'confirmed') return res.status(400).json({ message: 'Booking already confirmed' });
         booking.paymentStatus = 'confirmed';
-        booking.paymentid = paymentId;
         await booking.save();
         res.status(200).json(booking);
     } catch (error) {
+        console.log(error);
         res.status(400).json({ message: 'Something went wrong' });
     }
 }
@@ -128,6 +128,9 @@ const cancelBooking = async (req, res) => {
     try {
         const booking = await Booking.findById(req.body.id);
         booking.status = 'cancelled';
+        //update available seats
+        const event = await Events.findById(booking.eventId);
+        event.availableSeats += booking.seats;
         await booking.save();
         res.status(200).json(booking);
     } catch (error) {
@@ -136,6 +139,7 @@ const cancelBooking = async (req, res) => {
 }
 
 module.exports = {
+    getCheckoutSession,
     getBookings,
     getBookingById,
     checkAvailability,

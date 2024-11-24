@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import About from "./About/About";
+import Bookings from "./Bookings/Bookings";
 
 const Profile = () => {
     const [activeTab, setActiveTab] = useState('about');
@@ -55,7 +56,7 @@ const Profile = () => {
           </button>
         </div>
 
-        <div className="content">
+        <div className="tabs-content">
           {activeTab === 'about' && (
             <div>
               <About />
@@ -69,8 +70,7 @@ const Profile = () => {
           )}
           {activeTab === 'bookings' && (
             <div>
-              <h2>My Bookings</h2>
-              <p>Here are your current bookings.</p>
+              <Bookings />
             </div>
           )}
           {activeTab === 'events' && (

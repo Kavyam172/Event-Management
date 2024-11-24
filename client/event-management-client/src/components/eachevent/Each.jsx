@@ -6,6 +6,7 @@ import Each3 from './Each3/Each3'
 import Each4 from './Each4/Each4'
 import Cookies from 'js-cookie'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Each = () => {
 
@@ -23,7 +24,7 @@ const Each = () => {
         const data = res.data
         console.log(data)
         setEvent(data.event)
-        setVenue(data.venue)
+        setVenue(data.event.venueid)
     }
     
     useEffect(() => {
@@ -39,7 +40,7 @@ const Each = () => {
 
     return (
         <>
-         <Each1 banner={event.banner} title={event.title} venue={venue.name} date={event.startDate}/>
+         <Each1 event={event} eventid={event._id} banner={event.banner} title={event.title} venue={venue.name} date={event.startDate}/>
         <Each2 description={event.description} location={venue.address} starttime={event.startTime} endtime = {event.endTime} title={event.title}/>
         <Each3 category={event.category}/>
         </>

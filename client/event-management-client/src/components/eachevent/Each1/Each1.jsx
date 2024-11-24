@@ -1,7 +1,11 @@
 import React from 'react'
 import "./Each1.css"
-
-const Each1 = ({banner,title,venue,date}) => {
+import { Link, useNavigate } from 'react-router-dom'
+const Each1 = ({event,eventid,banner,title,venue,date}) => {
+    const navigate = useNavigate();
+    const redirectToBooking = ()=>{
+        navigate(`/booking/${eventid}`,{state:{event:event}})
+    }
   return (
     <div className="eachcontainer">
 
@@ -24,7 +28,7 @@ const Each1 = ({banner,title,venue,date}) => {
                 <h3>Date & time</h3>
                 <p>{date}</p>
                 <div className="bookbtn">
-                    <button className="book">Book now</button>
+                    <button className="book" onClick={redirectToBooking}>Book now</button>
                     <button className="promoter">Program promoter</button>
                     <div className="para">
                         <p >No Refunds</p>

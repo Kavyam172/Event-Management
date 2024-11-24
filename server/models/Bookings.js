@@ -16,7 +16,8 @@ const bookingsSchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: new Date()
-    }
+    },
+    expiresAt: { type: Date, index: { expireAfterSeconds: 15000 } }
 })
 
 const Bookings = mongoose.model('Bookings', bookingsSchema);

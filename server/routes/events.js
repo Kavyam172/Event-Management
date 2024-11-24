@@ -21,10 +21,8 @@ router.get('/', async (req, res) => {
 // get details of a particular event by id 
 router.get('/:eventId', async (req, res) => {
     try {
-        const event = await Events.findById(req.params.eventId);
-        console.log(event.venueid);
-        const venue = await Venues.findById(event.venueid);
-        res.json({event, venue}); 
+        const event = await Events.findById(req.params.eventId).populate("venueid");
+        res.json({event}); 
     } catch (err) {
         res.json({ message: err });
     }

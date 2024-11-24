@@ -92,3 +92,10 @@
       gap: 10px;
     }
 }
+
+.tabs-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

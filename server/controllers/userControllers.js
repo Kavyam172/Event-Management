@@ -17,6 +17,7 @@ const userLogin = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
+        console.log(user)
 
         const token = generateToken(user);
         res.cookie('token', token, { 
