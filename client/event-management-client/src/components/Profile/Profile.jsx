@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import About from "./About/About";
+import Bookings from "./Bookings/Bookings";
+import Events from "./Events/Events";
 
 const Profile = () => {
     const [activeTab, setActiveTab] = useState('about');
       
 
     return (
-      <div className="container">
+      <div className="pcontainer">
         <div className="main">
           <div className="poster-image">
             <img src="" alt="" />
@@ -55,7 +57,7 @@ const Profile = () => {
           </button>
         </div>
 
-        <div className="content">
+        <div className="tabs-content">
           {activeTab === 'about' && (
             <div>
               <About />
@@ -69,14 +71,12 @@ const Profile = () => {
           )}
           {activeTab === 'bookings' && (
             <div>
-              <h2>My Bookings</h2>
-              <p>Here are your current bookings.</p>
+              <Bookings/>
             </div>
           )}
           {activeTab === 'events' && (
             <div>
-              <h2>My Events</h2>
-              <p>Check out the events you are part of!</p>
+              <Events/>
             </div>
           )}
           {activeTab === 'calendar' && (

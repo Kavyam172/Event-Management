@@ -1,19 +1,18 @@
 import React from 'react'
-import "./Bookings.css"
-import Bookingcard from './Bookingcard/Bookingcard'
+import './Events.css'
+import Eventingcard from './Eventingcard/Eventingcard'
 
-
-const Bookings = () => {
-    return (
-        <div className="ticketscontainer">
-            <div className="filter">
-                <div className="filter-dropdown">
+const Events = () => {
+  return (
+    <div className="Eventscontainer">
+            <div className="Efilter">
+                <div className="Efilter-dropdown">
                     <label htmlFor="drop">Filter by : </label>
                     <select name="drop" id="drop"></select>
                     <option value="">status organizer</option>
 
                 </div>
-                <div className="sortbydate">
+                <div className="Esortbydate">
                     <label htmlFor="sort">Sort by : </label>
                     <select name="sort" id="sort"></select>
                     <option value="">date</option>
@@ -21,15 +20,16 @@ const Bookings = () => {
                 </div>
 
             </div>
-            <div className="bigticketbox">
-                <Bookingcard/>
-                <Bookingcard/>
+            <div className="bigEventsbox">
+                <Eventingcard/>
+                <Eventingcard/>
+                
 
 
             </div>
 
         </div>
-    )
+  )
 }
 
-export default Bookings
+export default Events
