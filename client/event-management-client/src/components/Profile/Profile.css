@@ -1,8 +1,13 @@
 /* Container */
-.container {
+.pcontainer {
     /* width: 70vw; */
     padding: 20px;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
   }
   
   /* Heading */
@@ -80,6 +85,9 @@
     height: 200px;
     background-color: #333;
     border-radius: 20px;
+}
+.tabs-content{
+  width: 100%;
 }
   
 .profile-content{
