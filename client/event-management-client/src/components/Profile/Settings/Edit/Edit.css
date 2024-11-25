@@ -1,0 +1,89 @@
+/* Dark overlay styling */
+.edit-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Darkens the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it stays above other content */
+  }
+  
+  /* Popup container styling */
+  .popup {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    height: 90vh;
+    max-width: 90%;
+    z-index: 10000; /* Ensure it stays above the overlay */
+  }
+  
+  /* Form group styling */
+  .form-group-edit {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 15px ;
+  }
+  
+  .form-group-edit label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group-edit input{
+    /* width: 100%; */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group-edit textarea{
+    width: auto;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Buttons container */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .buttons button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .buttons button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .buttons button[type="button"] {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .buttons button:hover {
+    opacity: 0.9;
+  }
+  

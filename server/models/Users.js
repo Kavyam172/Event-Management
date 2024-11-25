@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Bookings = require('./Bookings');
 
 const userSchema = new mongoose.Schema({
     id: String,
@@ -9,6 +10,18 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    phoneNumber:{
+        type: String,
+        default: null
+    },
+    DOB:{
+        type: Date,
+        default: null
+    },
+    bio:{
+        type: String,
+        default: null
     },
     password: {
         type: String,
@@ -23,6 +36,7 @@ const userSchema = new mongoose.Schema({
     bookings: {
         type: Array,
         default: [],
+        ref: 'Bookings'
     },
     createdAt: {
         type: Date,

@@ -86,13 +86,13 @@ const getBookingByUserId = async (req, res) => {
 
 const createBooking = async (req, res) => {
     try {
-        const { userId } = req.user.id;
+        const userId = req.user.id;
         const { eventId, seats, totalPrice,paymentMethod ,paymentStatus } = req.body;
         const event = await Events.findById(eventId);
         if(!event) return res.status(404).json({ message: 'Event not found' });
         const booking = new Booking({
-            userId,
-            eventId,
+            userid: userId,
+            eventid: eventId,
             seats,
             totalPrice,
             paymentMethod,
@@ -104,6 +104,7 @@ const createBooking = async (req, res) => {
         await event.save();
         res.status(201).json({booking:booking,status:'pending'});
     } catch (error) {
+        console.log(error);
         res.status(400).json({ message: 'Something went wrong' });
     }
 }
@@ -111,11 +112,21 @@ const createBooking = async (req, res) => {
 const confirmBooking = async (req, res) => {
     try {
         const { bookingId } = req.body;
-        const booking = await Booking.findById(bookingId);
+        const userId = req.user.id;
+
+        const booking = await Booking.findById(bookingId)
+        const user = await User.findById(userId)
+        console.log(user.bookings)
+
         if(!booking) return res.status(404).json({ message: 'Booking not found' });
         if(booking.paymentStatus === 'confirmed') return res.status(400).json({ message: 'Booking already confirmed' });
+
         booking.paymentStatus = 'confirmed';
         await booking.save();
+
+        user.bookings.push(bookingId);
+        await user.save();
+
         res.status(200).json(booking);
     } catch (error) {
         console.log(error);
@@ -127,11 +138,15 @@ const confirmBooking = async (req, res) => {
 const cancelBooking = async (req, res) => {
     try {
         const booking = await Booking.findById(req.body.id);
+
         booking.status = 'cancelled';
+        await booking.save();
+
         //update available seats
         const event = await Events.findById(booking.eventId);
         event.availableSeats += booking.seats;
-        await booking.save();
+        await event.save();
+        
         res.status(200).json(booking);
     } catch (error) {
         res.status(400).json({ message: 'Something went wrong' });

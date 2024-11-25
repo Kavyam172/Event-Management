@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Events = require('../models/Events');
 const Venues = require('../models/Venues');
+const Users = require('../models/Users');
 const upload = require('../config/multerconfig');
 const { default: mongoose } = require('mongoose');
 const { protect, authorize } = require('../middlewares/auth');
@@ -18,6 +19,30 @@ router.get('/', async (req, res) => {
     }
 });
 
+//endpoint to check if user is authorized to create event
+router.get('/check-role',protect ,async (req, res) => {
+    try{
+        const userid = req.user.id;
+        const user = await Users.findById(userid);
+        res.json({role: user.role});
+    }
+    catch(err){
+        console.log(err);
+        res.json({message: err});
+    }
+});
+
+// get all events created by a particular user
+router.get('/user', protect,async (req, res) => {
+    try {
+        const userid = req.user.id;
+        const events = await Events.find({ createdBy: userid }).populate("venueid").sort({ startDate: 1 });
+        res.json(events);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
 // get details of a particular event by id 
 router.get('/:eventId', async (req, res) => {
     try {
@@ -28,13 +53,16 @@ router.get('/:eventId', async (req, res) => {
     }
 });
 
+
+
 // endpoint to create new event
-router.post('/' ,upload.single('image'),protect,authorize(['organizer']), async (req, res) => {
+router.post('/' ,upload.single('image'),protect, async (req, res) => {
     console.log(req.body);
+    const userid = req.user.id;
     const imageUrl = await uploadImage(`./uploads/${req.file.filename}`)
     console.log(imageUrl);
     
-    fs.unlink(`./uploads/${req.file.filename}`, (err) => {
+    fs.unlink(`../uploads/${req.file.filename}`, (err) => {
         if (err) {
             console.error(err)
             return
@@ -53,7 +81,8 @@ router.post('/' ,upload.single('image'),protect,authorize(['organizer']), async 
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         price: req.body.price,
-        availableSeats: req.body.availableSeats 
+        availableSeats: req.body.availableSeats,
+        createdBy: userid
     });
 
     try {

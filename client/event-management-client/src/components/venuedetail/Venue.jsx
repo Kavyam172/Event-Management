@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom'
 const Venue = () => {
   const [venue,setVenue] = useState([])
   const [events,setEvents] = useState([])
-  const fetchEvents = async()=>{
+  const fetchEvents = async(id)=>{
     const response = await fetch('http://localhost:3000/events');
     const data = await response.json();
-    const event = data.filter((event)=>event.venueId === venue.id)
+    const event = data.filter((event)=>event.venueid === id)
+    console.log(event)
     setEvents(event)
   }
   const fetchVenue = async (id) => {
@@ -22,7 +23,7 @@ const Venue = () => {
   useEffect(() => {
     const id = window.location.href.split('/')[4];
     fetchVenue(id);
-    fetchEvents();
+    fetchEvents(id);
   }, []);
   return (
     <>

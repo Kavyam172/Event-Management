@@ -4,7 +4,7 @@ import { EventContext } from '../../../config/context'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const Payment = ({next,regular,vip,bookingId}) => {
+const Payment = ({next,regular,bookingId}) => {
   const [loading, setLoading] = useState(false)
   const {event} = useContext(EventContext)
   const token = Cookies.get('token')
@@ -16,8 +16,8 @@ const Payment = ({next,regular,vip,bookingId}) => {
       const res = await axios.post('http://localhost:3000/bookings/payment', {
         bookingId:bookingId,
         eventId: event._id,
-        seats: regular + vip,
-        totalPrice: event.price*regular + event.price*vip,
+        seats: regular,
+        totalPrice: event.price*regular,
         paymentMethod: 'Credit Card',
       },{
         headers: {

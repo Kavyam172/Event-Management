@@ -3,7 +3,7 @@ import './Eventdetails.css'
 import { EventContext } from '../../../config/context'
 import axios from 'axios'
 
-const Eventdetails = ({ next, regularTickets, vipTickets, increaseVipTickets, decreaseVipTickets, increaseRegularTickets, decreaseRegularTickets }) => {
+const Eventdetails = ({ next, regularTickets, increaseRegularTickets, decreaseRegularTickets }) => {
     const { event } = useContext(EventContext)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -13,7 +13,7 @@ const Eventdetails = ({ next, regularTickets, vipTickets, increaseVipTickets, de
         try {
             const res = await axios.post('http://localhost:3000/bookings/check', {
                 eventId: event._id,
-                seats: regularTickets + vipTickets
+                seats: regularTickets
             })
 
             if (res.status === 200) {
@@ -99,22 +99,6 @@ const Eventdetails = ({ next, regularTickets, vipTickets, increaseVipTickets, de
                         <div className="minus" onClick={decreaseRegularTickets}>-</div>
                         {regularTickets}
                         <div className="plus" onClick={increaseRegularTickets}>+</div>
-                    </div>
-
-
-                </div>
-                <div className="vip">
-                    <div className="leftvip">
-                        <p>VIP Price</p>
-                        <div className="dollar">
-                            <h2>Rs.{event.price}</h2>
-                            <h6>Convenience fee + Taxes</h6>
-                        </div>
-                    </div>
-                    <div className="rightvip">
-                        <div className="minus" onClick={decreaseVipTickets}>-</div>
-                        {vipTickets}
-                        <div className="plus" onClick={increaseVipTickets}>+</div>
                     </div>
 
 

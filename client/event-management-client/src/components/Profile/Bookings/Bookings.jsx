@@ -3,10 +3,10 @@ import "./Bookings.css"
 import Bookingcard from './Bookingcard/Bookingcard'
 
 
-const Bookings = () => {
+const Bookings = ({bookings}) => {
     return (
         <div className="ticketscontainer">
-            <div className="filter">
+            {/* <div className="filter">
                 <div className="filter-dropdown">
                     <label htmlFor="drop">Filter by : </label>
                     <select name="drop" id="drop"></select>
@@ -20,10 +20,13 @@ const Bookings = () => {
 
                 </div>
 
-            </div>
+            </div> */}
             <div className="bigticketbox">
-                <Bookingcard/>
-                <Bookingcard/>
+                {
+                    bookings.map((booking) => (
+                        <Bookingcard booking={booking} />
+                    ))
+                }
 
 
             </div>

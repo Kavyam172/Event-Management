@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Success.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { Link } from 'react-router-dom'
 
 const Success = () => {
 
@@ -52,7 +53,6 @@ const Success = () => {
 
 
     useEffect(() => {
-        console.log("useEffect")
         getEvent();
 
         confirmBooking();
@@ -102,7 +102,9 @@ const Success = () => {
 
 
       <div className="confirmproceed">
-        <button>View in My Bookings</button>
+        <Link to={"./profile"}>
+          <button>View in My Bookings</button>
+        </Link>
       </div>
 
     </div>

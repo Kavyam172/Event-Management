@@ -33,15 +33,15 @@ const userLogin = async (req, res) => {
 }
 
 const userSignup = async (req, res) => {
-    console.log(req.body);
-    const { name, email, password } = req.body;
+    const { name, email, password,organizer } = req.body;
+    const role = organizer? 'organizer' : 'user';
     try {
         const user = await Users.findOne({ email: email });
         if (user) {
             return res.status(400).json({ message: 'User already exists' });
         } else {
             const hashedPassword = await bcrypt.hash(password, 10);
-            const newUser = await Users.create({ name, email, password: hashedPassword });
+            const newUser = await Users.create({ name, email, password: hashedPassword,role });
             newUser.save();
             res.status(201).json({ newUser });
         }
@@ -61,10 +61,9 @@ const userLogout = (req, res) => {
 } 
 
 const getProfile = async (req, res) => {
-    console.log(req.body);
-    const { email } = req.body;
+    const email = req.user.email;
     try {
-        const user = await Users.findOne({ email: email });
+        const user = await Users.findOne({ email: email }).populate({path:'bookings',populate:{path:'eventid',model:'Events',populate:{path:'venueid',model:'Venues'}}});
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         } else {
@@ -72,8 +71,28 @@ const getProfile = async (req, res) => {
         }
     }
     catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Something went wrong' });
     }
 }
 
-module.exports = { userLogin, userSignup, userLogout, getProfile };
+const updateUser = async (req, res) => {
+    console.log("update user");
+    const userid = req.user.id;
+    const { name,email, contact, dob, bio } = req.body;
+
+    const user = await Users.findById(userid);
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+    user.name = name;
+    user.email = email;
+    user.phoneNumber = contact;
+    user.DOB = dob;
+    user.bio = bio;
+    user.save();
+    res.status(200).json({ user });
+
+}
+
+module.exports = { userLogin, userSignup, userLogout, getProfile, updateUser };

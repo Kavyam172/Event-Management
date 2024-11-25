@@ -4,7 +4,7 @@ import { EventContext } from '../../../config/context'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const Summery = ({next,regular,vip,setBookingId}) => {
+const Summery = ({next,regular,setBookingId}) => {
   const {event} = useContext(EventContext)
   const [isLoading, setIsLoading] = useState(false)
   const token = Cookies.get('token')
@@ -16,8 +16,8 @@ const Summery = ({next,regular,vip,setBookingId}) => {
     try {
         const res = await axios.post('http://localhost:3000/bookings/create', {
           eventId: event._id,
-          seats: regular + vip,
-          totalPrice: event.price*regular + event.price*vip,
+          seats: regular,
+          totalPrice: event.price*regular,
           paymentMethod: 'Credit Card',
           paymentStatus: 'Pending',
         },{
@@ -114,29 +114,13 @@ const Summery = ({next,regular,vip,setBookingId}) => {
 
 
         </div>
-        <div className="cvip">
-          <div className="cleftvip">
-            <h3>VIP Price</h3>
-            <div className="cdollar">
-              <p>Sub Total - Rs.{event.price} x {vip}</p>
-
-              <p>Convenience fee + Taxes</p>
-            </div>
-          </div>
-          <div className="crightvip">
-
-            {event.price*vip}
-
-          </div>
-
-
-        </div>
+        
       </div>
 
       <div className="sproceed">
         <div className="total">
           <h2>Total Payable Amount </h2>
-          <h2>{event.price*regular + event.price*vip}</h2>
+          <h2>{event.price*regular}</h2>
         </div>
         <div className="btndetail">
           <button onClick={handleProceed}>Proceed to pay</button>

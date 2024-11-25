@@ -26,11 +26,17 @@
     width: 20%;
     height: 60%;
     border-radius: 10px;
-    background-image: url('../src/assets/Booknow/bgimg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-top: 40px;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 .ticketdetail{
     margin-top: 40px;

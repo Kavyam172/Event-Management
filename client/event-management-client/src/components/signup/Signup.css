@@ -111,19 +111,19 @@ line-height: 19.41px;
 text-align: left;
 
 }
-.signupcontainer .rightbox .signupinfo form input{
+.signupcontainer .rightbox .signupinfo form input:not([type="checkbox"]){
     width: 578px;
-height: 46px;
-padding: 10px 0px 10px 8px;
-gap: 10px;
-border-radius: 5px ;
-border: none;
+    height: 46px;
+    padding: 10px 0px 10px 8px;
+    gap: 10px;
+    border-radius: 5px ;
+    border: none;
 
 
-font-size: 12px;
-font-weight: 400;
-line-height: 14.56px;
-text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
 
 
 }
@@ -179,13 +179,17 @@ line-height: 19.41px;
 text-align: left;
 
 }
-#checkbox{
+/* #checkbox{
     width: 26px;
-}
-.checkbox{
+} */
+/* .checkbox{
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
-    
-    
+    margin-top: 30px;    
+} */
+
+#check{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
