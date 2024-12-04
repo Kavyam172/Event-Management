@@ -3,7 +3,8 @@ body {
 
 }
 
-.container {
+.parent-container {
+    max-width: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,6 +50,7 @@ label {
     gap: 10px;
     display: flex;
     flex-direction: column;
+    width:100%;
 }
 
 
@@ -146,7 +148,7 @@ label {
 }
 
 .createeventinfo h2 {
-    font-weight: 300px;
+    font-weight: 700;
     font-size: 36px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

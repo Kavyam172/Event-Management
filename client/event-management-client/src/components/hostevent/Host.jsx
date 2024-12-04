@@ -6,6 +6,7 @@ import withReactContent from 'sweetalert2-react-content'
 import Cookies from 'js-cookie'
 import {jwtDecode} from 'jwt-decode'
 import { useNavigate } from 'react-router-dom'
+import { FileUpload } from '../ui/fileUpload'
 
 
 const MySwal = withReactContent(Swal)   
@@ -15,6 +16,11 @@ const Host = () => {
     const [venues, setVenues] = useState([])
     const [auth, setAuth] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [files, setFiles] = useState([]);
+    const handleFileUpload = (files) => {
+        setFiles(files);
+        console.log(files[0]);
+    };
 
     //dymaically adding categories
     const categories = ['Music', 'Dance', 'Art', 'Theatre', 'Comedy', 'Food', 'Sports', 'Fitness', 'Health', 'Fashion', 'Technology', 'Business', 'Science', 'Travel', 'Religion', 'Charity', 'Education', 'Family', 'Community', 'Film', 'Media', 'Government', 'Home', 'Auto', 'Hobbies', 'Other']
@@ -107,7 +113,7 @@ const Host = () => {
         const endTime = document.getElementById('end-time').value
         const startDate = document.getElementById('start-date').value
         const endDate = document.getElementById('end-date').value
-        const eventImage = document.getElementById('event-image').files[0]
+        const eventImage = files[0]
         const eventDescription = document.getElementById('event-description').value
 
         const event = {
@@ -170,7 +176,7 @@ const Host = () => {
 
 
     return (
-        <div className="container">
+        <div className="parent-container">
             {isLoading && 
             <div className="loader-overlay">
                 <div className="loader"></div>
@@ -230,8 +236,11 @@ const Host = () => {
                 <form>
                     <div className="in1">
                         <label htmlFor="event-image">Event Banner:</label>
-                        <div className="inputimg">
+                        {/* <div className="inputimg">
                             <input type="file" id="event-image" name="event-image" required/>
+                        </div> */}
+                        <div className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
+                            <FileUpload onChange={handleFileUpload} />
                         </div>
                     </div>
                     <div className="in1">
