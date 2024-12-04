@@ -29,9 +29,9 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['organizer', 'user', 'admin'],
+        enum: ['organizer', 'normal', 'admin'],
         required: true,
-        default: 'user'
+        default: 'normal'
     },
     bookings: {
         type: Array,

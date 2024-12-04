@@ -102,7 +102,7 @@ const Success = () => {
 
 
       <div className="confirmproceed">
-        <Link to={"./profile"}>
+        <Link to={"../profile"}>
           <button>View in My Bookings</button>
         </Link>
       </div>

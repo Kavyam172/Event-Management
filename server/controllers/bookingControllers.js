@@ -2,7 +2,8 @@ const Booking = require('../models/Bookings');
 const Events = require('../models/Events');
 const User = require('../models/Users');
 const Stripe = require('stripe')
-require('dotenv').config();
+const { sendMail } = require('../config/nodemailer');
+require('dotenv').config()
 
 const getCheckoutSession = async (req, res) => {
     const { eventId, seats,bookingId } = req.body;
@@ -87,8 +88,10 @@ const getBookingByUserId = async (req, res) => {
 const createBooking = async (req, res) => {
     try {
         const userId = req.user.id;
+        console.log(req.body)
         const { eventId, seats, totalPrice,paymentMethod ,paymentStatus } = req.body;
         const event = await Events.findById(eventId);
+        console.log(event)
         if(!event) return res.status(404).json({ message: 'Event not found' });
         const booking = new Booking({
             userid: userId,
@@ -114,7 +117,7 @@ const confirmBooking = async (req, res) => {
         const { bookingId } = req.body;
         const userId = req.user.id;
 
-        const booking = await Booking.findById(bookingId)
+        const booking = await Booking.findById(bookingId).populate('eventid');
         const user = await User.findById(userId)
         console.log(user.bookings)
 
@@ -126,6 +129,11 @@ const confirmBooking = async (req, res) => {
 
         user.bookings.push(bookingId);
         await user.save();
+
+        //send mail
+        const subject = 'Booking Confirmation';
+        const text = `Your booking for ${booking.eventid.title} has been confirmed`;
+        await sendMail(user.email, subject, text);
 
         res.status(200).json(booking);
     } catch (error) {

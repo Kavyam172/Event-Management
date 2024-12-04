@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Signup.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'

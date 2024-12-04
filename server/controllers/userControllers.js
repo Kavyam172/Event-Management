@@ -34,7 +34,7 @@ const userLogin = async (req, res) => {
 
 const userSignup = async (req, res) => {
     const { name, email, password,organizer } = req.body;
-    const role = organizer? 'organizer' : 'user';
+    const role = organizer? 'organizer' : 'normal';
     try {
         const user = await Users.findOne({ email: email });
         if (user) {
@@ -46,6 +46,7 @@ const userSignup = async (req, res) => {
             res.status(201).json({ newUser });
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json({ message: 'Something went wrong' });
     }
 }

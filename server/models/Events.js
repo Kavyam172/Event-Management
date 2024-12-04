@@ -35,8 +35,7 @@ const eventSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    availableSeats: Number,
-    bookedSeats: {
+    availableSeats: {
         type: Number,
         default: 0
     },
