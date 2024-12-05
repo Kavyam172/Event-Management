@@ -3,11 +3,13 @@ body{
 }
 
 .middle2box {
-    width: 70vw;
+    width: 86vw;
     margin: auto;
     display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
+    justify-content:space-between;
+    margin-top: 50px;
+    /* gap: 6.5%;
+    margin-left: 14.5%; */
 }
 
 .middle2box .organizer {
@@ -51,7 +53,7 @@ body{
 .middle2box .tagshare {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+   
 }
 
 .middle2box .tagshare .tags {
@@ -128,4 +130,77 @@ text-align: left;
     width: 252px;
     height: 48px;
     gap: 10px;
+}
+
+
+@media (orientation: portrait) {
+    body {
+        background: #FFFFFF;
+    }
+
+    .middle2box {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .middle2box .organizer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .middle2box .organizer h3 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .middle2box .organizer p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .middle2box .tagshare {
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .middle2box .tagshare .tags h3,
+    .middle2box .tagshare .share h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .middle2box .tagshare .tags .minitagbox {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .middle2box .tagshare .tags .minitagbox div {
+        font-size: 14px;
+        padding: 8px 10px;
+        border-radius: 5px;
+    }
+
+    .middle2box .tagshare .share .shareimg {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .middle2box .tagshare .share .shareimg img {
+        width: 36px;
+        height: 36px;
+    }
 }

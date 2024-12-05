@@ -92,10 +92,17 @@ line-height: 43.67px;
 text-align: center;
 
 }
+.signupcontainer .rightbox .signupinfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .signupcontainer .rightbox .signupinfo form {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
 }
 .signupcontainer .rightbox .signupinfo form div{
     display: flex;
@@ -112,7 +119,7 @@ text-align: left;
 
 }
 .signupcontainer .rightbox .signupinfo form input{
-    width: 578px;
+    width: 90%;
 height: 46px;
 padding: 10px 0px 10px 8px;
 gap: 10px;
@@ -179,8 +186,14 @@ line-height: 19.41px;
 text-align: left;
 
 }
+.dbba{
+
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
 #checkbox{
-    width: 26px;
+    width: 15px;
 }
 .checkbox{
     display: flex;
@@ -189,3 +202,75 @@ text-align: left;
     
     
 }
+
+
+
+@media (orientation: portrait) {
+    /* Container adjustments */
+    .signupcontainer {
+        flex-direction: column; /* Stack leftbox and rightbox vertically */
+        gap: 30px; /* Add more spacing between boxes */
+        align-items: center;
+    }
+
+    /* Left box adjustments */
+    .signupcontainer .leftbox {
+        width: 90%; /* Full width with some margin */
+        height: auto; /* Allow height to adjust dynamically */
+        background-size: cover; /* Ensure the background image scales */
+        text-align: center; /* Center align text */
+        padding: 20px; /* Add padding for better spacing */
+        border-radius: 10px;
+    }
+
+    .signupcontainer .leftbox h1 {
+        font-size: 30px; /* Adjust font size for smaller screens */
+    }
+
+    .signupcontainer .leftbox p {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    .signupcontainer .leftbox .signupbtn {
+        width: 80%; /* Make button width responsive */
+        font-size: 14px; /* Adjust font size */
+        padding: 10px;
+    }
+
+    /* Right box adjustments */
+    .signupcontainer .rightbox {
+        width: 90%; /* Right box takes full width */
+        height: auto; /* Adjust height based on content */
+        gap: 30px; /* Adjust gap between elements */
+        padding: 20px;
+        text-align: center; /* Center align content */
+    }
+
+    .signupcontainer .rightbox h3 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .signupcontainer .rightbox h1 {
+        font-size: 28px; /* Adjust font size for portrait mode */
+    }
+
+    .signupcontainer .rightbox .signupinfo {
+        width: 100%; /* Take full width */
+    }
+
+    .signupcontainer .rightbox .signupinfo form input {
+        width: 100%; /* Full width for input fields */
+        font-size: 14px; /* Adjust font size */
+        padding: 8px; /* Add padding for better usability */
+    }
+
+    .signupcontainer .rightbox .googleupbtn {
+        gap: 20px; /* Reduce gap between buttons */
+    }
+
+    .signupcontainer .rightbox .googleupbtn button {
+        width: 80%; /* Make buttons responsive */
+        font-size: 14px;
+    }
+}
+

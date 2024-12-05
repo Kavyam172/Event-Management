@@ -6,3 +6,74 @@
     justify-content: center;
     width: 80vw;
 } */
+
+.insideEach{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center;*/
+    margin-bottom: 60px;
+} 
+
+
+/* @media only screen and (max-width: 768px) { */
+    /* Adjust container widths and padding */
+    /* .eachcontainer .bgimage {
+        width: 100%;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .eachcontainer .dream {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .bookbtn {
+        width: 100%;
+    }
+
+    .bookbtn .book,
+    .bookbtn .promoter {
+        width: 90%;
+    }
+
+    .middle1box {
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        gap: 20px;
+    }
+
+    .middle2box {
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        gap: 20px;
+    }
+
+    .middle2box .tagshare {
+        align-items: center;
+    }
+
+    .tagshare .tags .minitagbox {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .tagshare .shareimg {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .upcoming-events {
+        width: 100%;
+        padding: 0 10px;
+    } */
+
+    /* .events-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+} */

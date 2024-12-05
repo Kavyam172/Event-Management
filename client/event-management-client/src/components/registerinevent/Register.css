@@ -60,3 +60,38 @@ body{
     text-align: center;
     color: #ffffff;
 }
+
+
+@media (orientation: portrait) {
+    .registerbox {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .registerbox h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .registerbox input {
+        width: 80vw; /* Adjust to fit smaller screens */
+        font-size: 14px;
+        height: 40px; /* Slightly reduced height */
+        padding-left: 10px;
+    }
+
+    .registerbox form {
+        gap: 20px; /* Reduce gap between input fields */
+    }
+
+    .register-button {
+        width: 80vw; /* Adjust button width */
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .getname,
+    .getEmail {
+        gap: 5px;
+    }
+}
