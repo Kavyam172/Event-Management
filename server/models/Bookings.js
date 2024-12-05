@@ -1,11 +1,21 @@
 const mongoose = require('mongoose');
+const Users = require('./Users');
+const Events = require('./Events');
 
 const bookingsSchema = new mongoose.Schema({
     id: String,
-    userid: String,
-    eventid: String,
+    userid: {
+        type: String,
+        required: true,
+        ref: 'Users'
+    },
+    eventid: {
+        type: String,
+        required: true,
+        ref: 'Events'
+    },
     paymentid: String,
-    seats: Array,
+    seats: Number,
     totalPrice: Number,
     paymentMethod:String,
     paymentStatus:String,
@@ -16,7 +26,8 @@ const bookingsSchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: new Date()
-    }
+    },
+    expiresAt: { type: Date, index: { expireAfterSeconds: 15000 } }
 })
 
 const Bookings = mongoose.model('Bookings', bookingsSchema);

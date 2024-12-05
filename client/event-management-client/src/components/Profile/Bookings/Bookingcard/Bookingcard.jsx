@@ -1,34 +1,34 @@
 import React from 'react'
 import './Bookingcard.css'
 
-const Bookingcard = () => {
+const Bookingcard = ({booking}) => {
     return (
         <div className="singleticket">
             <div className="ticketkibox">
 
                 <div className="ticketimg">
+                    <img src={booking.eventid.banner} alt="" />
                 </div>
                 <div className="ticketdetail">
-                    <h3>Caring is the new marketing</h3>
+                    <h3>{booking.eventid.title}</h3>
                     <div className="ticketdetailpara">
-                        <p>Nov 4,2023 at 12:13 AM</p>
-                        <p>Seat number : M02,N03</p>
-                        <p>Quantity : 2</p>
-                        <p>Stockton, New Hampsire</p>
+                        <p>{booking.createdAt.slice(0,10)}</p>
+                        <p>Quantity : {booking.seats}</p>
+                        <p>{booking.eventid.venueid.name},{booking.eventid.venueid.address}</p>
                     </div>
                     <div className="ticketcost">
                         <div className="flexit">
                             <p>Ticket Price</p>
-                            <p>$500</p>
+                            <p>Rs.{booking.eventid.price}</p>
                         </div>
                         <div className="flexit">
-                            <p>Convenience fee + Taxes</p>
-                            <p>$50</p>
+                            <p>Seats</p>
+                            <p>x{booking.seats}</p>
                         </div>
                         <div className="dotline">.......................................................</div>
                         <div className="flexit">
                             <h4>Total Price</h4>
-                            <h4>$550</h4>
+                            <h4>Rs.{booking.eventid.price*booking.seats}</h4>
                         </div>
 
                     </div>
@@ -46,7 +46,7 @@ const Bookingcard = () => {
                         <img src="../src/assets/profile/QR code.svg" alt="" />
                         <div className="idbook">
                             <p>Booking ID</p>
-                            <h3>WQ0036HQ</h3>
+                            <h3>{booking._id.slice(0,10)}..</h3>
                         </div>
                     </div>
                     <div className="ticload">
@@ -58,10 +58,6 @@ const Bookingcard = () => {
                 </div>
 
 
-            </div>
-            <div className="ticketsidecancel">
-                <p>Follow Organizer</p>
-                <p>Repot Event</p>
             </div>
         </div>
 

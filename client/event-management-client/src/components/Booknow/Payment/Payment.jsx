@@ -1,9 +1,50 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './Payment.css'
+import { EventContext } from '../../../config/context'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
-const Payment = ({next}) => {
+const Payment = ({next,regular,bookingId}) => {
+  const [loading, setLoading] = useState(false)
+  const {event} = useContext(EventContext)
+  const token = Cookies.get('token')
+
+  const handlePayment =async () => {
+    setLoading(true)
+
+    try{
+      const res = await axios.post('http://localhost:3000/bookings/payment', {
+        bookingId:bookingId,
+        eventId: event._id,
+        seats: regular,
+        totalPrice: event.price*regular,
+        paymentMethod: 'Credit Card',
+      },{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      console.log(res)
+
+      if(res.statusText!='OK'){
+        alert("payment failed")
+      }
+      if(res.data.url){
+        window.location.href = res.data.url
+      }
+    }
+    catch (error) {
+      console.log(error)
+    }
+    setLoading(false)
+  }
   return (
     <div className="PEDcontainer">
+      {loading && 
+        <div className="loader-overlay">
+            <div className="loader"></div>
+        </div>
+      }
       <div className="cross">
         <img src="../src/assets/Booknow/cross.svg" alt="" />
       </div>
@@ -19,11 +60,11 @@ const Payment = ({next}) => {
 
       </div>
 
-      <div className="UPIdetails">
+      {/* <div className="UPIdetails">
         <label htmlFor="upi">Details</label>
         <input type="text" id='upi' placeholder='Enter UPI id here...' />
 
-      </div>
+      </div> */}
       <div className="paymentmethod">
         <h3>Please select Payment Method</h3>
         <div className="options">
@@ -38,7 +79,7 @@ const Payment = ({next}) => {
 
             </div>
           </div>
-          <div className="cdcard">
+          {/* <div className="cdcard">
             <div className="cdleft">
               <input type="radio" id='paypal' name='payment' value="paypal" />
               <label htmlFor="paypal">PayPal</label>
@@ -73,7 +114,7 @@ const Payment = ({next}) => {
             <div className="cdright">
               <img className='visa' src="../src/assets/Booknow/payments/Gift card.svg" alt="" height="25px" />
             </div>
-          </div>
+          </div> */}
         </div>
 
 
@@ -81,7 +122,7 @@ const Payment = ({next}) => {
 
 
       <div className="pproceed">
-        <button onClick={next}>Proceed to Pay</button>
+        <button onClick={handlePayment}>Proceed to Pay</button>
       </div>
 
     </div>

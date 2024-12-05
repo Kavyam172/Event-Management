@@ -216,3 +216,23 @@ textarea {
     text-align: center;
     color: #ffffff;
 }
+
+/* Rotating loader */
+.loader {
+    border: 8px solid rgba(255, 255, 255, 0.3); /* Light translucent border */
+    border-top: 8px solid #fff; /* Solid top border for rotation effect */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Smooth rotation */
+}
+
+/* Spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

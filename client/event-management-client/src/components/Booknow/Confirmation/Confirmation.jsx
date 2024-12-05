@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Confirmation.css'
 
 const Confirmation = () => {
+
+
   return (
     <div className="confirmcontainer">
       <div className="cross">
@@ -26,29 +28,29 @@ const Confirmation = () => {
       </div>
       <div className="congratsdetailbox">
         <div className="congratimg"></div>
-        <div className="congratboxdetail">
-          <h2>Jeffery Live in Concert</h2>
-          <p>5 PM</p>
-          <p>Saturday, March 24</p>
-          <p>Park Avenue, NYC</p>
-          <p>1690$</p>
-        </div>
+        {/* <div className="congratboxdetail">
+          <h2>{event?.title}</h2>
+          <p>{event?.startTime}-{event.endTime}</p>
+          <p>{event?.startDate.slice(0,10)}</p>
+          <p>{event?.venueid.name},{event.venueid.address}</p>
+          <p>{event?.price*seats}</p>
+        </div> */}
 
       </div>
       <div className="bookeddetail">
         <div className="DMID">
           <p>Booking Date</p>
-          <h5>Monday, March 12</h5>
+          <h5>{new Date.now()}</h5>
 
         </div>
         <div className="DMID">
           <p>Payment Method</p>
-          <h5>UPI</h5>
+          <h5>Card</h5>
 
         </div>
         <div className="DMID">
           <p>Booking ID</p>
-          <h5>WB8696KT</h5>
+          <h5>{bookingId}</h5>
 
         </div>
       </div>

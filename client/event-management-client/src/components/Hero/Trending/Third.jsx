@@ -23,7 +23,7 @@ const TrendingColleges=()=>{
 
     return(
         <div className="upcoming-events  Trending">
-            <h1> Trending <span>Venues</span> </h1>
+            <h1> Our <span>Venues</span> </h1>
             
             <div className="events-grid">
                 {venues.map((venue)=>(

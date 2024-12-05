@@ -1,22 +1,21 @@
 import React from 'react'
 import './Eventingcard.css'
 
-const Eventingcard = () => {
+const Eventingcard = ({event}) => {
   return (
     <div className="singleEvent">
         <div className="eventkibox">
             <div className="eventimg"></div>
             <div className="eventdetail">
-                <h2>Caring is the New Marketing</h2>
+                <h2>{event?.title}</h2>
                 <div className="paradetail">
-                    <p>01:34 PM</p>
-                    <p>Friday, June 8</p>
-                    <p>Coppel, Virginia</p>
-                    <p>Free/Paid</p>
+                    <p>{event?.startTime}</p>
+                    <p>{event?.startDate.slice(0,10)}-{event?.endDate.slice(0,10)}</p>
+                    <p>{event?.venueid.name},{event?.venueid.address}</p>
+                    <p>{event?.price>0?event.price:"Free"}</p>
                 </div>
             </div>
             <img src="../src/assets/profile/threedot.svg" alt="" id='threedot'/>
-            <img src="../src/assets/profile/Invite.svg" alt="" id='invite'/>
         </div>
     </div>
   )

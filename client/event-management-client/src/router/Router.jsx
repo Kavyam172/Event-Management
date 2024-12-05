@@ -11,6 +11,8 @@ import Signin from "../components/signin/Signin";
 import Booknow from "../components/Booknow/Booknow";
 import Venue from "../components/venuedetail/Venue";
 import Profile from "../components/Profile/Profile";
+import Success from "../components/Success/Success";
+import Failed from "../components/Failed/Failed";
 
 const Router = createBrowserRouter([
     {
@@ -52,8 +54,16 @@ const Router = createBrowserRouter([
             },
             {
 
-                path:"/booking",
+                path:"/booking/:id",
                 element:<Booknow/>
+            },
+            {
+                path:"/success",
+                element:<Success/>
+            },
+            {
+                path:"/fail",
+                element:<Failed/>
             },
             {
                 path:"/venues/:id",

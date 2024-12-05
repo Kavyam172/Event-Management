@@ -8,6 +8,7 @@ const port = 3000
 const eventsRoute = require('./routes/events')
 const venuesRoute = require('./routes/venues')
 const usersRoute = require('./routes/user')
+const bookingsRoute = require('./routes/bookings')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
@@ -24,6 +25,7 @@ connectDB()
 app.use('/events',eventsRoute)
 app.use('/venues',venuesRoute)
 app.use('/users',usersRoute)
+app.use('/bookings',bookingsRoute)
 
 app.get('/',(req,res)=>{
     res.send('Hello World')

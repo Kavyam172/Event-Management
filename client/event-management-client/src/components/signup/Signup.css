@@ -118,19 +118,19 @@ line-height: 19.41px;
 text-align: left;
 
 }
-.signupcontainer .rightbox .signupinfo form input{
-    width: 90%;
-height: 46px;
-padding: 10px 0px 10px 8px;
-gap: 10px;
-border-radius: 5px ;
-border: none;
+.signupcontainer .rightbox .signupinfo form input:not([type="checkbox"]){
+    width: 578px;
+    height: 46px;
+    padding: 10px 0px 10px 8px;
+    gap: 10px;
+    border-radius: 5px ;
+    border: none;
 
 
-font-size: 12px;
-font-weight: 400;
-line-height: 14.56px;
-text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.56px;
+    text-align: left;
 
 
 }
