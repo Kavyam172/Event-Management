@@ -13,6 +13,14 @@ import Venue from "../components/venuedetail/Venue";
 import Profile from "../components/Profile/Profile";
 import Success from "../components/Success/Success";
 import Failed from "../components/Failed/Failed";
+import AdminLayout from "../layout/AdminLayout";
+import Overview from "../components/Admin/Overview/Overview";
+import EventsPage from "../components/Admin/Events/Events";
+import UsersPage from "../components/Admin/Users/Users";
+import SalesPage from "../components/Admin/Sales/Sales";
+import BookingsPage from "../components/Admin/Bookings/Bookings";
+import AnalyticsPage from "../components/Admin/Analytics/Analytics";
+import SettingsPage from "../components/Admin/Settings/Settings";
 
 const Router = createBrowserRouter([
     {
@@ -85,9 +93,41 @@ const Router = createBrowserRouter([
         path:'/signin',
         element:<Signin/>
         
+    },
+    {
+        path:"/admin",
+        element:(<AdminLayout/>),
+        children:[
+            {
+                index:true,
+                element:<Overview/>
+            },
+            {
+                path:"products",
+                element:<EventsPage/>
+            },
+            {
+                path:"users",
+                element:<UsersPage/>
+            },
+            {
+                path:"sales",
+                element:<SalesPage/>
+            },
+            {
+                path:"orders",
+                element:<BookingsPage/>
+            },
+            {
+                path:"analytics",
+                element:<AnalyticsPage/>
+            },
+            {
+                path:"settings",
+                element:<SettingsPage/>
+            }
+        ]
     }
-    
-
 ])
 
 export default Router
