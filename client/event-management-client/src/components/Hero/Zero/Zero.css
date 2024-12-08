@@ -21,7 +21,7 @@ main {
   height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   /* Align content to the bottom */
   align-items: center;
   text-align: center;
@@ -33,9 +33,14 @@ main {
   background: transparent;
   padding: 20px;
   font-size: 35px;
-  margin-bottom: auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* margin-bottom: auto; */
   /* Push the overlay to the top */
   width: 60vh;
+  font-weight: 700;
 }
 
 .hero-nav button {
