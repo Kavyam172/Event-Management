@@ -8,11 +8,51 @@ import StatCard from "../StatCard/StatCard";
 import SalesOverviewChart from "./SalesDist/SalesDist";
 import CategoryDistributionChart from "./CategoryDist/CategoryDist";
 import { useState } from "react";
+import Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal)
+
 
 const OverviewPage = () => {
+
 	const [totalSales,setTotalSales] = useState(0);
 	const [totalUsers,setTotalUsers] = useState(0);
 	const [totalEvents,setTotalevents] = useState(0);
+	const checkAuth = async () => {
+		console.log('Checking Auth')
+        const token = Cookies.get('token')
+        if (token) {
+            const res = await axios.get('http://localhost:3000/events/check-role', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+			console.log(res)
+            if(res.data.role === 'admin'){
+                console.log('User is an admin')
+            }
+            else{
+                MySwal.fire({
+                    icon: 'error', 
+                    title: 'You are not Authorized to view this page',
+                    confirmButtonText: 'Okay'
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        window.location.href = '/'
+                    }
+                })
+            }
+        }
+        else{
+            window.location.href = '/signin'
+        }
+    }
+
+	useEffect(() => {
+		checkAuth()
+	}, [])
 
 	//get total sales
 	const getTotalSales = async () => {

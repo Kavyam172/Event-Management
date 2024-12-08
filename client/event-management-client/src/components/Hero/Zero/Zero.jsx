@@ -12,7 +12,7 @@ const EventHive = () => {
           <button className="prev">&lt;</button>
           <button className="next">&gt;</button>
         </div>
-        <section className="search">
+        {/* <section className="search">
           <div className="search-container">
             <div className="search-section">
               <h3 className="section-heading">Looking For</h3>
@@ -42,7 +42,7 @@ const EventHive = () => {
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
       </section>
     </main>
   );
