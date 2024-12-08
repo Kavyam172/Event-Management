@@ -25,7 +25,7 @@ const Bookingcard = ({booking}) => {
                             <p>Seats</p>
                             <p>x{booking.seats}</p>
                         </div>
-                        <div className="dotline">.......................................................</div>
+                        <div className="dotline">................................................</div>
                         <div className="flexit">
                             <h4>Total Price</h4>
                             <h4>Rs.{booking.eventid.price*booking.seats}</h4>

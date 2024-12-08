@@ -29,3 +29,24 @@
     gap: 28px;
     
 }
+
+
+@media (orientation: portrait) {
+    .ticketscontainer {
+        padding: 12px;
+    }
+
+    .bigticketbox {
+        padding-top: 20px;
+        gap: 40px;
+    }
+
+    .filter {
+        gap: 12px;
+    }
+
+    .filter-dropdown label, .sortbydate label {
+        font-size: 14px;
+    }
+}
+

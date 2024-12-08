@@ -86,4 +86,41 @@
   .buttons button:hover {
     opacity: 0.9;
   }
+
+  @media (orientation: portrait) {
+    .popup {
+        width: 90%;
+        height: 85%;
+        padding: 15px;
+    }
+
+    .form-group-edit {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .form-group-edit label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .form-group-edit input,
+    .form-group-edit textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
   

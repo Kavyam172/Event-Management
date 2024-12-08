@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Signup.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -69,11 +69,12 @@ const Signup = () => {
                         <label htmlFor="uppassword">PASSWORD</label>
                         <input type='password' placeholder='Enter your password' id='uppassword' onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
-                    <div id="check">
+                    
+                </form>
+                <div id="check">
                         <input type="checkbox" name="organizer" id="organizer"/>
                         <label htmlFor="organizer">I am an Organizer</label>
                     </div>
-                </form>
             </div>
             <div className="googleupbtn">
                 <button className="simpsignup" onClick={handleSignup}>Sign Up</button>
