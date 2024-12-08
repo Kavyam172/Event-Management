@@ -107,3 +107,57 @@
     flex-direction: column;
     gap: 30px;
 }
+
+@media (orientation: portrait) {
+  .pcontainer {
+    width: 100%;
+    padding: 15px;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .poster-image {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+
+  .profile-content {
+    gap: 15px;
+    text-align: center;
+  }
+
+  .profile-content .bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-container {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .tab {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .active-tab::after {
+    bottom: -3px;
+    height: 2px;
+  }
+
+  .tabs-content {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+}
+

@@ -13,12 +13,12 @@ const Each = () => {
     const [event, setEvent] = useState({})
     const [venue, setVenue] = useState({})
 
-    
+
     //fetch event by event id from server
     const fetchEvent = async (token) => {
         //get event id from url
         const eventId = window.location.href.split('/')[4]
-        const res = await axios.get('http://localhost:3000/events/'+eventId,{
+        const res = await axios.get('http://localhost:3000/events/' + eventId, {
             headers: { Authorization: `Bearer ${token}` }
         })
         const data = res.data
@@ -26,7 +26,7 @@ const Each = () => {
         setEvent(data.event)
         setVenue(data.event.venueid)
     }
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
         const token = Cookies.get('token'); // Get the token from cookies

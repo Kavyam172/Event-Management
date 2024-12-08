@@ -41,10 +41,10 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    <div className="copy-right">
+                    {/* <div className="copy-rightfix">
                         <p>Non Copyrighted © 2023 Upload by EventHive
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </footer>
         </>

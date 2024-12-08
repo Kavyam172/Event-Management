@@ -1,9 +1,12 @@
 .middle1box {
-    width: 70vw;
+    width: 80vw;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     margin-top: 40px;
+   
+    /* gap: 42.5%;
+    margin-left: 14.5%; */
 }
 
 .middle1box .descriptionevent .descriptioneventin {
@@ -32,6 +35,7 @@
     text-align: left;
 
     color: #7E7E7E;
+    width: 43vw;
 
 
 
@@ -114,4 +118,53 @@ color: #7E7E7E;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+}
+
+@media (orientation: portrait) {
+    .middle1box {
+        flex-direction: column;
+        width: 90%;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .middle1box .descriptionevent {
+        width: 100%;
+    }
+
+    .middle1box .descriptionevent .descriptioneventin,
+    .middle1box .descriptionevent .descriptionhour {
+        gap: 15px;
+        align-items: center;
+    }
+
+    .middle1box .descriptionevent .descriptioneventin h3,
+    .middle1box .descriptionevent .descriptionhour h3,
+    .middle1box .maploc h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .middle1box .descriptionevent .descriptioneventin p,
+    .middle1box .descriptionevent .descriptionhour p,
+    .middle1box .maploc .mapin p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .middle1box .maploc {
+        width: 100%;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .middle1box .maploc .mapin h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .middle1box .maploc .mapin {
+        align-items: center;
+        gap: 10px;
+    }
 }

@@ -73,3 +73,37 @@ text-align: left;
     border: none;
 
 }
+
+@media (orientation: portrait) {
+    .create {
+      height: auto; /* Adjust height for portrait mode */
+      margin-top: 100px; /* Reduce margin */
+    }
+  
+    .create .createbox {
+      flex-direction: column; /* Stack elements vertically */
+      gap: 15px; /* Adjust gap */
+      padding: 20px; /* Add padding for spacing */
+    }
+  
+    .create .createbox .createimg img {
+      height: auto; /* Maintain aspect ratio */
+      object-fit: contain; /* Adjust image fit */
+    }
+  
+    .createEvent h1 {
+      font-size: 28px; /* Reduce font size */
+      text-align: center; /* Center-align text */
+    }
+  
+    .create .createbox .createEvent p {
+      font-size: 16px; /* Adjust font size for better readability */
+      text-align: center; /* Center-align text */
+    }
+  
+    .create .createbox .createEvent button {
+      width: 100%; /* Button spans full width */
+      height: 50px; /* Adjust height */
+      font-size: 16px; /* Adjust font size */
+    }
+  }

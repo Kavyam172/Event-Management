@@ -1,5 +1,15 @@
-.signupcontainer .leftbox1{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5) ), url(../../assets/signin/signinimg.svg);
+
+
+body{
+    background: #f3f3f3;
+}
+.signincontainer{
+    display: flex;
+    gap: 20px;
+    
+}
+.signincontainer .leftbox1{
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4) ), url(../../assets/signin/signinimg.svg);
     width: 600px;
     height: 900px;
     background-repeat: no-repeat;
@@ -9,10 +19,9 @@
     gap: 30px;
     object-fit: cover;
     border-radius: 3px;
-
     align-items: center;
 }
-.signupcontainer .leftbox1 h1{
+.signincontainer .leftbox1 h1{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 font-size: 40px;
 font-weight: 700;
@@ -23,7 +32,7 @@ color: #FFFFFF;
 
     
 }
-.signupcontainer .leftbox1 p{
+.signincontainer .leftbox1 p{
    
 font-size: 16px;
 font-weight: 400;
@@ -32,20 +41,7 @@ text-align: center;
 color: #FFFFFF;
 
 }
-
-.signupcontainer .rightbox{
-    padding-top:200px;
-    height: 100vh;
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    
-}
-
-.signupcontainer .leftbox1 .signupbtn{
+.signincontainer .leftbox1 .signinbtn{
     width: Fixed (128px)px;
 height: Fixed (49px)px;
 top: 498px;
@@ -54,8 +50,6 @@ padding: 15px 40px 15px 40px;
 gap: 10px;
 border-radius: 5px ;
 border: none;
-cursor : pointer;
-
 
 
 font-size: 16px;
@@ -63,7 +57,212 @@ font-weight: 400;
 line-height: 19.41px;
 text-align: center;
 color: #FFFFFF;
-background-color: rgba(255, 255, 255, 0.4);
+background-color: rgba(0, 128,255,0.2);
+cursor: pointer;
 
 
 }
+.signincontainer .rightbox{
+    padding-top:200px;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.signincontainer .rightbox h3{
+   
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-size: 24px;
+font-weight: 700;
+line-height: 29.11px;
+text-align: center;
+
+}
+.signincontainer .rightbox h3 span{
+    color: #7848F4;
+
+}
+.signincontainer .rightbox h1{
+   
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-size: 36px;
+font-weight: 700;
+line-height: 43.67px;
+text-align: center;
+
+}
+.signincontainer .rightbox .signininfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.signincontainer .rightbox .signininfo form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 90%;
+}
+.signincontainer .rightbox .signininfo form div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+}
+.signincontainer .rightbox .signininfo form label{
+    
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: left;
+
+}
+.signincontainer .rightbox .signininfo form input{
+    width: 90%;
+height: 46px;
+padding: 10px 0px 10px 8px;
+gap: 10px;
+border-radius: 5px ;
+border: none;
+
+
+font-size: 12px;
+font-weight: 400;
+line-height: 14.56px;
+text-align: left;
+
+
+}
+.rightbox .googleinbtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.rightbox .googleinbtn .simpsignin{
+    width: 257px;
+height:  40px;
+top: 629px;
+left: 892px;
+padding: 15px 30px px 40px;
+gap: 10px;
+border-radius: 5px ;
+border: none;
+
+background: #7848F4;
+
+
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: center;
+color: #FFFFFF;
+cursor: pointer;
+
+
+}
+.rightbox .googleinbtn .googlebtn{
+    width: 371px;
+height: 46px;
+top: 758px;
+left: 835px;
+padding: 19px 52px 19px 52px;
+gap: 10px;
+border-radius: 5px;
+border:none;
+opacity: 0px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+background: #E0E0E9;
+
+font-size: 16px;
+font-weight: 400;
+line-height: 19.41px;
+text-align: left;
+
+}
+
+
+@media (orientation: portrait) {
+    .signincontainer {
+        flex-direction: column-reverse; /* Stack the items vertically */
+        gap: 40px; /* Add some space between sections */
+        padding: 20px; /* Ensure there's space around the container */
+    }
+
+    .signincontainer .leftbox1 {
+        width: 100%; /* Full width for small screens */
+        height: auto; /* Adjust height to content */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Make the border more rounded */
+    }
+
+    .signincontainer .leftbox1 h1 {
+        font-size: 30px; /* Reduce font size */
+        line-height: 40px; /* Adjust line-height */
+    }
+
+    .signincontainer .leftbox1 p {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .signincontainer .leftbox1 .signinbtn {
+        width: 100%; /* Button takes full width */
+        padding: 12px; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .signincontainer .rightbox {
+        width: 100%; /* Right box takes full width on smaller screens */
+        padding-top: 0; /* Adjust top padding */
+        height: auto; /* Allow content to grow */
+    }
+
+    .signincontainer .rightbox h1 {
+        font-size: 28px; /* Adjust heading size */
+    }
+
+    .signincontainer .rightbox .signininfo form {
+        width: 100%; /* Form takes full width */
+        gap: 20px; /* Reduce gap between form elements */
+    }
+
+    .signincontainer .rightbox .signininfo form div {
+        width: 100%; /* Ensure div takes full width */
+    }
+
+    .signincontainer .rightbox .signininfo form input {
+        width: 100%; /* Inputs take full width */
+        font-size: 14px; /* Smaller input font */
+        padding: 12px; /* Adjust padding */
+    }
+
+    .rightbox .googleinbtn .simpsignin {
+        width: 100%; /* Button takes full width */
+        padding: 12px; /* Adjust padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .rightbox .googleinbtn .googlebtn {
+        width: 100%; /* Google button takes full width */
+        padding: 12px; /* Adjust padding */
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+
+
+
+
+

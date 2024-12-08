@@ -1,6 +1,6 @@
 .PEDcontainer{
     height: 85vh;
-    width: 36vw;
+    width: 50vw;
     border-radius: 5px;
     background-color: #10107bc1;
     background-blend-mode: darken;
@@ -10,7 +10,8 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    gap: 25px
+    gap: 25px;
+    /* padding: 5px; */
     
     
 } 
@@ -115,4 +116,116 @@
     background-color: white;
     padding: 5px;
     height: 25px;
+}
+
+@media (orientation: portrait) {
+    .PEDcontainer {
+        height: auto; /* Adjust height dynamically */
+        width: 90vw; /* Wider container for smaller screens */
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #10107bc1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* .ESPCdetails {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 14px;
+        color: aliceblue;
+    } */
+
+    .line {
+        height: 2px;
+        width: 50px; /* Adjusted for smaller screens */
+        margin: auto;
+        background-color: #7848F4;
+    }
+
+    .cross img {
+        height: 3vh; /* Slightly larger for touch devices */
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+    }
+
+    .paymentmethod {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .paymentmethod h3 {
+        color: aliceblue;
+        font-size: 18px; /* Adjusted for readability */
+        text-align: center;
+    }
+
+    .paymentmethod .options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .paymentmethod .options .cdcard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.1); /* Slight contrast for buttons */
+        border-radius: 8px;
+    }
+
+    .paymentmethod .options .cdcard .cdleft {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: aliceblue;
+        font-size: 14px;
+    }
+
+    .paymentmethod .options .cdcard .cdleft input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .paymentmethod .options .cdcard .cdright {
+        display: flex;
+        gap: 10px;
+    }
+
+    .visa {
+        background-color: white;
+        padding: 5px;
+        height: 20px; /* Smaller for mobile */
+    }
+
+    .pproceed {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pproceed button {
+        width: 90%;
+        max-width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        color: aliceblue;
+        background-color: #7848F4;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
 }

@@ -111,3 +111,19 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+
+  @media (orientation: portrait) {
+    .events-grid {
+      grid-template-columns: repeat(2, 1fr); /* Reduce columns for better fit */
+      gap: 15px; /* Adjust gap for smaller screens */
+    }
+  
+    .upcoming-events h1 {
+      font-size: 28px; /* Adjust font size for smaller screens */
+    }
+  
+    .load-more {
+      padding: 8px 16px; /* Adjust button size */
+    }
+  }

@@ -29,3 +29,17 @@
     gap: 28px;
     
 }
+
+
+@media (max-width: 768px) {
+    .bigEventsbox {
+        padding-top: 40px;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Eventscontainer {
+        padding: 8px;
+    }
+}

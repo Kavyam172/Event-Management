@@ -238,3 +238,92 @@ textarea {
         transform: rotate(360deg);
     }
 }
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .Fgrp input, 
+    .in1 select, 
+    .form-group input, 
+    textarea, 
+    .hostbutton {
+        width: 100%; /* Use full width for smaller screens */
+        max-width: 100%; /* Prevent overflow */
+    }
+
+    .Fgrp, 
+    .mainformgroup, 
+    .form-group {
+        gap: 20px; /* Adjust spacing for smaller screens */
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .createeventinfo h2, 
+    .eventdescription h2 {
+        font-size: 28px; /* Adjust font size for headings */
+        text-align: center; /* Center align text */
+    }
+
+    .eventdescription form {
+        gap: 20px; /* Reduce gap for smaller screens */
+    }
+
+    label {
+        font-size: 12px; /* Reduce label font size */
+    }
+
+    .form-group div {
+        width: 100%; /* Ensure inputs span full width */
+    }
+
+    .hostbutton {
+        height: 46px; /* Adjust button height */
+        font-size: 14px; /* Adjust button font size */
+    }
+
+    textarea {
+        height: 150px; /* Reduce textarea height */
+    }
+
+    .loader {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .createeventinfo h2, 
+    .eventdescription h2 {
+        font-size: 24px; /* Further reduce heading size */
+    }
+
+    .Fgrp input, 
+    .in1 select, 
+    textarea, 
+    .hostbutton {
+        font-size: 12px; /* Reduce font size */
+    }
+
+    label {
+        font-size: 11px; /* Further reduce label font size */
+    }
+
+    textarea {
+        height: 120px; /* Adjust for very small screens */
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+}

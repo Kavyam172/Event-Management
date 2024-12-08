@@ -1,0 +1,38 @@
+@media (orientation: portrait) {
+    .calender {
+        width: 100%;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent line breaks */
+        margin: auto;
+        padding: 10px;
+    }
+    
+    .rbc-calendar {
+        min-width: 800px; /* Minimum width to allow horizontal scroll */
+        height: auto;
+        font-size: 14px;
+    }
+    
+   
+    .rbc-header {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .rbc-month-view {
+        font-size: 12px;
+    }
+
+    .rbc-time-column {
+        display: none; /* Hide time column for better visibility on narrow screens */
+    }
+
+    .rbc-day-slot {
+        font-size: 12px;
+    }
+
+    .rbc-event {
+        font-size: 10px;
+        padding: 5px;
+    }
+}

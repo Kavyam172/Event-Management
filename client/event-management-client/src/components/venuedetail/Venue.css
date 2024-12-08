@@ -34,3 +34,45 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .image {
+      width: 100%; /* Use full width for smaller screens */
+      margin-bottom: 20px; /* Reduce margin */
+    }
+  
+    .image > img {
+      object-fit: contain; /* Ensure the image fits well */
+    }
+  
+    .content {
+      width: 90%; /* Increase width for better readability */
+      margin: auto;
+      gap: 15px; /* Increase spacing */
+      align-items: center; /* Center-align content */
+      text-align: center; /* Center-align text */
+    }
+  
+    .content h1, .content h4, .content p {
+      font-size: 16px; /* Adjust font size */
+    }
+  
+    .events {
+      width: 100%; /* Use full width */
+    }
+  
+    .events .cards {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center-align cards */
+      gap: 15px; /* Reduce gap */
+    }
+  
+    .events .cards .card {
+      width: 90%; /* Make cards span most of the screen width */
+    }
+  
+    .events h1 {
+      font-size: 20px; /* Adjust heading size */
+      text-align: center;
+    }
+  }
