@@ -81,13 +81,47 @@ router.post('/' ,upload.single('image'),protect, async (req, res) => {
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         price: req.body.price,
-        availableSeats: req.body.availableSeats,
+        availableSeats: req.body.availfableSeats,
         createdBy: userid
     });
 
     try {
         const savedEvent = await event.save();
         res.status(200).json(savedEvent);
+    } catch (err) {
+        console.log(err)    
+        res.status(500).json({ message: err });
+    }
+});
+
+//endpoint to edit event
+router.put('/:eventId', upload.single('image'),protect, async (req, res) => {
+    console.log(req.body);
+    const imageUrl = await uploadImage(`./uploads/${req.file.filename}`)
+    console.log(imageUrl);
+    
+    fs.unlink(`../uploads/${req.file.filename}`, (err) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
+
+    try {
+        const updatedEvent = await Events.findByIdAndUpdate(req.params.eventId, {
+            title: req.body.title,
+            description: req.body.description,
+            category: req.body.category,
+            banner: imageUrl,
+            venueid: req.body.venue,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
+            startTime: req.body.startTime,
+            endTime: req.body.endTime,
+            price: req.body.price,
+            availableSeats: req.body.availableSeats
+        }, { new: true });
+        res.status(200).json(updatedEvent);
     } catch (err) {
         console.log(err)    
         res.status(500).json({ message: err });

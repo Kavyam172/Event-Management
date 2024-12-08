@@ -7,15 +7,45 @@ import UsersTable from "./UsersTable/UsersTable";
 import UserGrowthChart from "./GrowthChart/GrowthChart";
 import UserActivityHeatmap from "./ActivityMap/ActivityMap";
 import UserDemographicsChart from "./UsersDemo/UsersDemo";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const userStats = {
-	totalUsers: 152845,
-	newUsersToday: 243,
-	activeUsers: 98520,
-	churnRate: "2.4%",
-};
+// const userStats = {
+// 	totalUsers: 152845,
+// 	newUsersToday: 243,
+// 	activeUsers: 98520,
+// 	churnRate: "2.4%",
+// };
 
 const UsersPage = () => {
+	const [totalUsers, setTotalUsers] = useState(0);
+	const [newUsersToday, setNewUsersToday] = useState(0);
+
+	//get new users today
+	const getNewUsersToday = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/stats/new-users-today");
+			setNewUsersToday(res.data[0].total);
+		} catch (err) {
+			console.error(err);
+		}
+	}
+
+	//get total users
+	const getTotalUsers = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/stats/total-users");
+			setTotalUsers(res.data[0].total);
+		} catch (err) {
+			console.error(err);
+		}
+	}
+
+	useEffect(() => {
+		getTotalUsers();
+		getNewUsersToday();
+	}, []);
+	
 	return (
 		<div className='ml-20 flex-1 overflow-auto relative z-10'>
 			<Header title='Users' />
@@ -31,17 +61,17 @@ const UsersPage = () => {
 					<StatCard
 						name='Total Users'
 						icon={UsersIcon}
-						value={userStats.totalUsers.toLocaleString()}
+						value={totalUsers}
 						color='#6366F1'
 					/>
-					<StatCard name='New Users Today' icon={UserPlus} value={userStats.newUsersToday} color='#10B981' />
+					<StatCard name='New Users Today' icon={UserPlus} value={newUsersToday} color='#10B981' />
 					<StatCard
 						name='Active Users'
 						icon={UserCheck}
-						value={userStats.activeUsers.toLocaleString()}
+						value={1}
 						color='#F59E0B'
 					/>
-					<StatCard name='Churn Rate' icon={UserX} value={userStats.churnRate} color='#EF4444' />
+					<StatCard name='Churn Rate' icon={UserX} value={1} color='#EF4444' />
 				</motion.div>
 
 				<UsersTable />

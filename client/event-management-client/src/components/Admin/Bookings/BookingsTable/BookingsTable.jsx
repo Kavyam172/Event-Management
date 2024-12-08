@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Eye } from "lucide-react";
+import axios from "axios";
 
-const orderData = [
-	{ id: "ORD001", customer: "John Doe", total: 235.4, status: "Delivered", date: "2023-07-01" },
-	{ id: "ORD002", customer: "Jane Smith", total: 412.0, status: "Processing", date: "2023-07-02" },
-	{ id: "ORD003", customer: "Bob Johnson", total: 162.5, status: "Shipped", date: "2023-07-03" },
-	{ id: "ORD004", customer: "Alice Brown", total: 750.2, status: "Pending", date: "2023-07-04" },
-	{ id: "ORD005", customer: "Charlie Wilson", total: 95.8, status: "Delivered", date: "2023-07-05" },
-	{ id: "ORD006", customer: "Eva Martinez", total: 310.75, status: "Processing", date: "2023-07-06" },
-	{ id: "ORD007", customer: "David Lee", total: 528.9, status: "Shipped", date: "2023-07-07" },
-	{ id: "ORD008", customer: "Grace Taylor", total: 189.6, status: "Delivered", date: "2023-07-08" },
-];
+// const orderData = [
+// 	{ id: "ORD001", customer: "John Doe", total: 235.4, status: "Delivered", date: "2023-07-01" },
+// 	{ id: "ORD002", customer: "Jane Smith", total: 412.0, status: "Processing", date: "2023-07-02" },
+// 	{ id: "ORD003", customer: "Bob Johnson", total: 162.5, status: "Shipped", date: "2023-07-03" },
+// 	{ id: "ORD004", customer: "Alice Brown", total: 750.2, status: "Pending", date: "2023-07-04" },
+// 	{ id: "ORD005", customer: "Charlie Wilson", total: 95.8, status: "Delivered", date: "2023-07-05" },
+// 	{ id: "ORD006", customer: "Eva Martinez", total: 310.75, status: "Processing", date: "2023-07-06" },
+// 	{ id: "ORD007", customer: "David Lee", total: 528.9, status: "Shipped", date: "2023-07-07" },
+// 	{ id: "ORD008", customer: "Grace Taylor", total: 189.6, status: "Delivered", date: "2023-07-08" },
+// ];
 
 const OrdersTable = () => {
+	const [orderData, setOrderData] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [filteredOrders, setFilteredOrders] = useState(orderData);
+
+	//get orders
+	const getOrders = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/bookings");
+			console.log(res);
+			setOrderData(res.data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
 
 	const handleSearch = (e) => {
 		const term = e.target.value.toLowerCase();
@@ -25,6 +39,14 @@ const OrdersTable = () => {
 		);
 		setFilteredOrders(filtered);
 	};
+
+	useEffect(() => {
+		getOrders();
+	}, []);
+
+	useEffect(() => {
+		setFilteredOrders(orderData);
+	}, [orderData]);
 
 	return (
 		<motion.div
@@ -75,36 +97,34 @@ const OrdersTable = () => {
 					<tbody className='divide divide-gray-700'>
 						{filteredOrders.map((order) => (
 							<motion.tr
-								key={order.id}
+								key={order._id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							>
 								<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>
-									{order.id}
+									{order._id}
 								</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>
-									{order.customer}
+									{order.userid.name}
 								</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>
-									${order.total.toFixed(2)}
+									${order.totalPrice.toFixed(2)}
 								</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
 									<span
 										className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-											order.status === "Delivered"
+											order.paymentStatus === "confirmed"
 												? "bg-green-100 text-green-800"
-												: order.status === "Processing"
+												: order.paymentStatus === "pending"
 												? "bg-yellow-100 text-yellow-800"
-												: order.status === "Shipped"
-												? "bg-blue-100 text-blue-800"
 												: "bg-red-100 text-red-800"
 										}`}
 									>
-										{order.status}
+										{order.paymentStatus}
 									</span>
 								</td>
-								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{order.date}</td>
+								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{order.createdAt.slice(0,10)}</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
 									<button className='text-indigo-400 hover:text-indigo-300 mr-2'>
 										<Eye size={18} />

@@ -1,17 +1,40 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import axios from "axios";
 
-const categoryData = [
-	{ name: "Electronics", value: 4500 },
-	{ name: "Clothing", value: 3200 },
-	{ name: "Home & Garden", value: 2800 },
-	{ name: "Books", value: 2100 },
-	{ name: "Sports & Outdoors", value: 1900 },
-];
+// const categoryData = [
+// 	{ name: "Electronics", value: 4500 },
+// 	{ name: "Clothing", value: 3200 },
+// 	{ name: "Home & Garden", value: 2800 },
+// 	{ name: "Books", value: 2100 },
+// 	{ name: "Sports & Outdoors", value: 1900 },
+// ];
 
 const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B"];
 
 const CategoryDistributionChart = () => {
+	const [categoryData, setCategoryData] = useState([]);
+	//get category data
+	const getCategoryData = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/stats/sales-by-category");
+			// console.log(res);
+			//convert data to the format required by recharts
+			const data = res.data;
+			const categoryData = data.map((item) => {
+				return { name: item._id, value: item.total};
+			});
+			console.log(categoryData);
+			setCategoryData(categoryData);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	useEffect(() => {
+		getCategoryData();
+	}, []);
 	return (
 		<motion.div
 			className='bg-[#510f90] bg-opacity-80 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700'

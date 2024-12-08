@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import axios from "axios";
 
-const userData = [
-	{ id: 1, name: "John Doe", email: "john@example.com", role: "Customer", status: "Active" },
-	{ id: 2, name: "Jane Smith", email: "jane@example.com", role: "Admin", status: "Active" },
-	{ id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Customer", status: "Inactive" },
-	{ id: 4, name: "Alice Brown", email: "alice@example.com", role: "Customer", status: "Active" },
-	{ id: 5, name: "Charlie Wilson", email: "charlie@example.com", role: "Moderator", status: "Active" },
-];
+// const userData = [
+// 	{ id: 1, name: "John Doe", email: "john@example.com", role: "Customer", status: "Active" },
+// 	{ id: 2, name: "Jane Smith", email: "jane@example.com", role: "Admin", status: "Active" },
+// 	{ id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Customer", status: "Inactive" },
+// 	{ id: 4, name: "Alice Brown", email: "alice@example.com", role: "Customer", status: "Active" },
+// 	{ id: 5, name: "Charlie Wilson", email: "charlie@example.com", role: "Moderator", status: "Active" },
+// ];
 
 const UsersTable = () => {
+	const [users, setUsers] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
-	const [filteredUsers, setFilteredUsers] = useState(userData);
+	const [filteredUsers, setFilteredUsers] = useState(users);
+
+	//get users
+	const getUsers = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/users");
+			console.log(res)
+			setUsers(res.data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	const handleSearch = (e) => {
 		const term = e.target.value.toLowerCase();
@@ -22,6 +35,15 @@ const UsersTable = () => {
 		);
 		setFilteredUsers(filtered);
 	};
+
+	useEffect(() => {
+		getUsers();
+	}, []);
+
+	useEffect(() => {
+		setFilteredUsers(users);
+	}, [users]);
+
 
 	return (
 		<motion.div
@@ -69,7 +91,7 @@ const UsersTable = () => {
 					<tbody className='divide-y divide-gray-700'>
 						{filteredUsers.map((user) => (
 							<motion.tr
-								key={user.id}
+								key={user._id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
@@ -78,7 +100,7 @@ const UsersTable = () => {
 									<div className='flex items-center'>
 										<div className='flex-shrink-0 h-10 w-10'>
 											<div className='h-10 w-10 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-white font-semibold'>
-												{user.name.charAt(0)}
+												{user.name.charAt(0).toUpperCase()}
 											</div>
 										</div>
 										<div className='ml-4'>
@@ -99,12 +121,12 @@ const UsersTable = () => {
 								<td className='px-6 py-4 whitespace-nowrap'>
 									<span
 										className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-											user.status === "Active"
+											"Active" === "Active"
 												? "bg-green-800 text-green-100"
 												: "bg-red-800 text-red-100"
 										}`}
 									>
-										{user.status}
+										{"Active"}
 									</span>
 								</td>
 

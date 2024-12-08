@@ -1,28 +1,81 @@
 import { motion } from "framer-motion";
 import { Edit, Search, Trash2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const PRODUCT_DATA = [
-	{ id: 1, name: "Wireless Earbuds", category: "Electronics", price: 59.99, stock: 143, sales: 1200 },
-	{ id: 2, name: "Leather Wallet", category: "Accessories", price: 39.99, stock: 89, sales: 800 },
-	{ id: 3, name: "Smart Watch", category: "Electronics", price: 199.99, stock: 56, sales: 650 },
-	{ id: 4, name: "Yoga Mat", category: "Fitness", price: 29.99, stock: 210, sales: 950 },
-	{ id: 5, name: "Coffee Maker", category: "Home", price: 79.99, stock: 78, sales: 720 },
-];
+// const PRODUCT_DATA = [
+// 	{ id: 1, name: "Wireless Earbuds", category: "Electronics", price: 59.99, stock: 143, sales: 1200 },
+// 	{ id: 2, name: "Leather Wallet", category: "Accessories", price: 39.99, stock: 89, sales: 800 },
+// 	{ id: 3, name: "Smart Watch", category: "Electronics", price: 199.99, stock: 56, sales: 650 },
+// 	{ id: 4, name: "Yoga Mat", category: "Fitness", price: 29.99, stock: 210, sales: 950 },
+// 	{ id: 5, name: "Coffee Maker", category: "Home", price: 79.99, stock: 78, sales: 720 },
+// ];
 
 const EventsTable = () => {
+	const [events, setEvents] = useState([]);
+	const [eventSales, setEventSales] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
-	const [filteredProducts, setFilteredProducts] = useState(PRODUCT_DATA);
+	const [filteredProducts, setFilteredProducts] = useState(events);
 
 	const handleSearch = (e) => {
 		const term = e.target.value.toLowerCase();
 		setSearchTerm(term);
-		const filtered = PRODUCT_DATA.filter(
-			(product) => product.name.toLowerCase().includes(term) || product.category.toLowerCase().includes(term)
+		const filtered = events.filter(
+			(product) => product.title.toLowerCase().includes(term) || product.category.toLowerCase().includes(term)
 		);
 
 		setFilteredProducts(filtered);
 	};
+
+	// get events
+	const getEvents = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/events");
+			console.log(res);
+			setEvents(res.data)
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	//get event sales
+	const getEventSales = async () => {
+		try {
+			const res = await axios.get("http://localhost:3000/stats/sales-by-event");
+			console.log(res);
+			// add sales data to the events
+			const data = res.data;
+			setEventSales(res.data)
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+
+	useEffect(() => {
+		getEvents();
+		getEventSales()
+	}, []);
+
+	useEffect(() => {
+		console.log("changed")
+		console.log(events);
+		setFilteredProducts(events);
+	}, [events]);
+
+	useEffect(()=>{
+		//add sales to events
+		const updatedEvents = events.map((event)=>{
+			const sale = eventSales.find((item)=>item._id.id===event._id)
+			if(sale){
+				return {...event, sales:sale.total}
+			}
+			else{
+				return {...event, sales:0}
+			}
+		})
+		setEvents(updatedEvents)
+	},[eventSales])
 
 	return (
 		<motion.div
@@ -71,31 +124,31 @@ const EventsTable = () => {
 					</thead>
 
 					<tbody className='divide-y divide-gray-700'>
-						{filteredProducts.map((product) => (
+						{filteredProducts.map((event) => (
 							<motion.tr
-								key={product.id}
+								key={event._id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 							>
 								<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100 flex gap-2 items-center'>
 									<img
-										src='https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww'
+										src={event.banner}
 										alt='Product img'
 										className='size-10 rounded-full'
 									/>
-									{product.name}
+									{event.title}
 								</td>
 
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-									{product.category}
+									{event.category}
 								</td>
 
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-									${product.price.toFixed(2)}
+									Rs.{event.price.toFixed(2)}
 								</td>
-								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{product.stock}</td>
-								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{product.sales}</td>
+								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{event.availableSeats?event.availableSeats:0}</td>
+								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{event.sales}</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
 									<button className='text-indigo-400 hover:text-indigo-300 mr-2'>
 										<Edit size={18} />

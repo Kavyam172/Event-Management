@@ -41,7 +41,7 @@ const getCheckoutSession = async (req, res) => {
 
 const getBookings = async (req, res) => {
     try {
-        const bookings = await Booking.find({});
+        const bookings = await Booking.find({}).populate('userid');
         res.status(200).json(bookings);
     } catch (error) {
         res.status(400).json({ message: 'Something went wrong' });

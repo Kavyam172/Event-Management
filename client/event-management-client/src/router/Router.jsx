@@ -103,7 +103,7 @@ const Router = createBrowserRouter([
                 element:<Overview/>
             },
             {
-                path:"products",
+                path:"events",
                 element:<EventsPage/>
             },
             {
@@ -115,7 +115,7 @@ const Router = createBrowserRouter([
                 element:<SalesPage/>
             },
             {
-                path:"orders",
+                path:"bookings",
                 element:<BookingsPage/>
             },
             {
